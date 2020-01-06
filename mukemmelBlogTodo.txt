@@ -1,0 +1,13 @@
+1- renkler değişecek
+2- yazı tipi, family güzel bir şekilde yapılacak
+3- tablet, telefon için ayarlamalar yapılabilir.
+4- sayfalama yapılacak(hazır olarak alınabilir)
+5- web sitesi gizlemesi yapılacak, .env, mongodb ayarlarını burada sakla
+6- statik sayfalar eklenecek hakkında about me .etc 
+7- Kendi domainimde saklayacağım
+8- Google analytics eklentisi yapılacak
+9- Şifreli koruma yönetim paneli
+10- Üye sistemi
+11- Yorum yapma sistemi
+12- Veritabanı entegresi yazılar veritabanından çekilecek, kimin yayınladığı görülecek
+13- 
