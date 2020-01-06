@@ -8,6 +8,9 @@ const next = require('next')
 
 require('dotenv').config({ path: '../.env' });
 
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(express.static("public"));
+
 const Post = require('../models/Post')
 
 // mongo Connect 
@@ -16,21 +19,19 @@ mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology
     .catch(e => console.log('MongoDB connection failure,more info: ' + e))
 
 const post = new Post({
-    title: 'Post Title',
-    slug: 'post-title',
-    details: 'this is a post details there is a lot of things here'
+    title: 'Post Title 2',
+    slug: 'post-title-2',
+    details: 'Selman Kahya blog videosu için teşekkürler'
 })
 
-//post.save();
+// post.save();
 server.get('/', (req, res) => {
-
-    Post.find((err, posts) => {
+    Post.find({}, function (err, posts) {
         if (err) { console.log(err) }
-        else {
-            console.log(posts);
-            res.send(posts);
-        }
-    })
+        res.send({
+            posts: posts
+        });
+    });
 })
 
 server.listen(process.env.BACKEND_PORT, () =>

@@ -31,7 +31,7 @@ const BlogPost = ({ post }) => (
 
     <div className="blog">
       <h2 className="blog-title">
-        <Link href="/test">
+        <Link href={post.slug}>
           <a className="blog-title-link">{post.title}</a>
         </Link>
       </h2>
@@ -76,7 +76,7 @@ const BlogPost = ({ post }) => (
 
 BlogPost.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch(`http://localhost:3000/api/post/${query.postId}`);
+  const res = await fetch(`http://localhost:3001/api/post/${query.postId}`);
   const json = await res.json();
   return { post: json.post };
 };
