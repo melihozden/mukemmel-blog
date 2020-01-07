@@ -34,6 +34,19 @@ server.get('/', (req, res) => {
     });
 })
 
+server.get(`/:postId`, (req, res) => {
+
+    const requestedPostId = req.params.postId;
+
+    console.log("PARAMS : " + req.params.postId)
+
+    Post.findOne({ _id: requestedPostId }), (err, posts) => {
+        res.send({
+            posts: posts
+        })
+    }
+})
+
 server.listen(process.env.BACKEND_PORT, () =>
     console.log(`Server is running on http://localhost:${process.env.BACKEND_PORT}/`));
 

@@ -4,6 +4,9 @@ import Head from "next/head";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 
+// var moment = require('moment');
+// moment().format();
+
 const Home = ({ posts }) => (
   <div className="container">
     <Head>
@@ -29,10 +32,10 @@ const Home = ({ posts }) => (
       </div> */}
     </div>
 
-    {posts.map(post => (
-      <div className="blog">
+    {posts.map((post, i) => (
+      <div className="blog" key={i}>
         <h2 className="blog-title">
-          <Link href={post.slug}>
+          <Link href={post._id}>
             <a className="blog-title-link">{post.title}</a>
           </Link>
         </h2>
@@ -86,9 +89,7 @@ const Home = ({ posts }) => (
 Home.getInitialProps = async ({ req }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch("http://localhost:3001");
-  // const res = await fetch("http://localhost:3001");
   const json = await res.json();
-  // console.log(json)
   return { posts: json.posts };
 };
 
