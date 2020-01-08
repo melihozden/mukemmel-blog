@@ -7,30 +7,12 @@ import Nav from "..//components/nav"
 // var moment = require('moment');
 // moment().format();
 
-const Home = ({ posts }) => (
+const Create = ({ posts }) => (
   <div className="container">
     <Head>
       <title>Melih Blog</title>
     </Head>
-      <Nav/>
-    <div className="hero">
-      <h1 className="hero-title">Melih Özden Blog</h1>
-      {/* <div className="hero-social-links">
-        <Link href="https://medium.com/@selmankahya">
-          <a className="social-link">Medium</a>
-        </Link>
-        <Link href="https://www.twitter.com/selmankahyax">
-          <a className="social-link">Twitter</a>
-        </Link>
-        <Link href="https://www.linkedin.com/in/selmankahya">
-          <a className="social-link">LinkedIn</a>
-        </Link>
-        <Link href="https://www.instagram.com/selmankahyax/?hl=en">
-          <a className="social-link">Instagram</a>
-        </Link>
-      </div> */}
-    </div>
-
+      <Nav></Nav>
     {posts.map((post, i) => (
       <div className="blog" key={i}>
         <h2 className="blog-title">
@@ -85,7 +67,7 @@ const Home = ({ posts }) => (
   </div>
 );
 
-Home.getInitialProps = async ({ req }) => {
+Create.getInitialProps = async ({ req }) => {
 
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch("http://localhost:3001/api/posts");
@@ -94,4 +76,4 @@ Home.getInitialProps = async ({ req }) => {
    return { posts: json.posts };
 };
 
-export default Home;
+export default Create;

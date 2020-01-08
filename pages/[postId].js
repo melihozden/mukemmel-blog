@@ -77,8 +77,12 @@ const BlogPost = ({ post }) => (
 BlogPost.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   console.log("Query : " + query.postId)
-  const res = await fetch(`http://localhost:3001/${query.postId}`);
+  // const res = await fetch(`http://localhost:3001/${query.postId}`);
+  const res = await fetch(`http://localhost:3001/api/post/${query.postId}`);
   const json = await res.json();
+
+  console.log("JSON : "+json);
+
   return { post: json.post };
 };
 

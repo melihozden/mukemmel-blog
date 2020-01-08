@@ -2,30 +2,25 @@
 const express = require('express')
 const server = express()
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
-const glob = require('glob')
-const next = require('next')
-
 require('dotenv').config({ path: '../.env' });
+require('../database/database'); 
 
-server.use(bodyParser.urlencoded({ extended: true }));
-server.use(express.static("public"));
+server.use(bodyParser.urlencoded({ extended: false }));
+// server.use(express.static("public"));
 
 const Post = require('../models/Post')
 
-// mongo Connect 
-mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connection success'))
-    .catch(e => console.log('MongoDB connection failure,more info: ' + e))
+// const post = new Post({
+//     title: 'Post Title 2',
+//     slug: 'post-title-2',
+//     details: 'Selman Kahya blog videosu için teşekkürler'
+// })
 
-const post = new Post({
-    title: 'Post Title 2',
-    slug: 'post-title-2',
-    details: 'Selman Kahya blog videosu için teşekkürler'
-})
+// server.get('/',(req,res)=>{
+//     res.render
+// })
 
-// post.save();
-server.get('/', (req, res) => {
+server.get('/api/posts', (req, res) => {
     Post.find({}, function (err, posts) {
         if (err) { console.log(err) }
         res.send({
@@ -34,18 +29,19 @@ server.get('/', (req, res) => {
     });
 })
 
-server.get(`/:postId`, (req, res) => {
 
-    const requestedPostId = req.params.postId;
+// server.get('/:postId', (req, res) => {
 
-    console.log("PARAMS : " + req.params.postId)
+//     const requestedPostId = req.params.postId;
 
-    Post.findOne({ _id: requestedPostId }), (err, posts) => {
-        res.send({
-            posts: posts
-        })
-    }
-})
+//     console.log("PARAMS : " + req.params.postId); 
+
+//     Post.findOne({ _id: requestedPostId }), (err, post) => {
+//         res.send({
+//             post: post
+//         })
+//     }
+// })
 
 server.listen(process.env.BACKEND_PORT, () =>
     console.log(`Server is running on http://localhost:${process.env.BACKEND_PORT}/`));
