@@ -3,7 +3,7 @@ import fetch from "isomorphic-unfetch";
 import Head from "next/head";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import Nav from "..//components/nav"
+import Nav from "../components/nav"
 // var moment = require('moment');
 // moment().format();
 
