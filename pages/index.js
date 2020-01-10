@@ -9,44 +9,47 @@ import Nav from "../components/nav"
 
 const Home = ({ posts }) => (
   <div className="container">
-    <Head>
-      <title>Melih Blog</title>
-    </Head>
-      <Nav/>
-    <div className="hero">
-      <h1 className="hero-title">Melih Özden Blog</h1>
-      {/* <div className="hero-social-links">
+    <Nav />
+    <div className="blogs">
+
+      <Head>
+        <title>Melih Blog</title>
+      </Head>
+      <div className="hero">
+        <h1 className="hero-title">Melih Özden Blog</h1>
+        {/* <div className="hero-social-links">
         <Link href="https://medium.com/@selmankahya">
-          <a className="social-link">Medium</a>
+        <a className="social-link">Medium</a>
         </Link>
         <Link href="https://www.twitter.com/selmankahyax">
-          <a className="social-link">Twitter</a>
+        <a className="social-link">Twitter</a>
         </Link>
         <Link href="https://www.linkedin.com/in/selmankahya">
-          <a className="social-link">LinkedIn</a>
+        <a className="social-link">LinkedIn</a>
         </Link>
         <Link href="https://www.instagram.com/selmankahyax/?hl=en">
-          <a className="social-link">Instagram</a>
+        <a className="social-link">Instagram</a>
         </Link>
       </div> */}
+      </div>
+
+      {posts.map((post, i) => (
+        <div className="blog" key={i}>
+          <h2 className="blog-title">
+            <Link href={post._id}>
+              <a className="blog-title-link">{post.title}</a>
+            </Link>
+          </h2>
+          <div className="blog-text">
+            <ReactMarkdown source={post.details} />
+          </div>
+          <div className="blog-date">{post.createdAt}</div>
+        </div>
+      ))}
     </div>
 
-    {posts.map((post, i) => (
-      <div className="blog" key={i}>
-        <h2 className="blog-title">
-          <Link href={post._id}>
-            <a className="blog-title-link">{post.title}</a>
-          </Link>
-        </h2>
-        <div className="blog-text">
-          <ReactMarkdown source={post.details} />
-        </div>
-        <div className="blog-date">{post.createdAt}</div>
-      </div>
-    ))}
-
     <style jsx>{`
-      .container {
+      .blogs {
         max-width: 650px;
         width: 100%;
         margin: 0 auto;
@@ -58,7 +61,7 @@ const Home = ({ posts }) => (
 
       .hero {
         text-align: center;
-        margin: 96px 0;
+        margin: 48px 0;
       }
 
       .social-link {
@@ -91,7 +94,7 @@ Home.getInitialProps = async ({ req }) => {
   const res = await fetch("http://localhost:3001/api/posts");
   const json = await res.json();
 
-   return { posts: json.posts };
+  return { posts: json.posts };
 };
 
 export default Home;

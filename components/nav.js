@@ -4,14 +4,20 @@ const Nav = () => (
   <nav>
     <ul>
       <li>
-          <a href="/">Home</a>
+        <a href="/">Home</a>
       </li>
-        <li>
-            <a href="/create">Create</a>
-        </li>
-        <li>
-            <a href="/profile">Profile</a>
-        </li>
+      <li>
+        <a href="/create">Create</a>
+      </li>
+      <li>
+        <a href="/profile">Profile</a>
+      </li>
+      <li className="right">
+        <a href="/login">Login</a>
+      </li>
+      <li className="right">
+        <a href="/register">Register</a>
+      </li>
     </ul>
 
     <style jsx>{`
@@ -25,19 +31,23 @@ const Nav = () => (
       }
       ul {
         display: flex;
-        justify-content: space-between;
       }
       nav > ul {
         padding: 4px 16px;
       }
+      .right{
+        float:right;
+      }
       li {
         display: flex;
         padding: 6px 8px;
+        margin: 12px;
       }
       a {
-        color: #067df7;
+        color: #0c9463;
         text-decoration: none;
-        font-size: 13px;
+        font-size: 16px;
+        font-weight:bold;
       }
     `}</style>
   </nav>

@@ -9,26 +9,28 @@ import Nav from "..//components/nav"
 
 const Create = ({ posts }) => (
   <div className="container">
-    <Head>
-      <title>Melih Blog</title>
-    </Head>
-      <Nav></Nav>
-    {posts.map((post, i) => (
-      <div className="blog" key={i}>
-        <h2 className="blog-title">
-          <Link href={post._id}>
-            <a className="blog-title-link">{post.title}</a>
-          </Link>
-        </h2>
-        <div className="blog-text">
-          <ReactMarkdown source={post.details} />
+    <Nav />
+    <div className="blogs">
+      <Head>
+        <title>Create Post</title>
+      </Head>
+      {posts.map((post, i) => (
+        <div className="blog" key={i}>
+          <h2 className="blog-title">
+            <Link href={post._id}>
+              <a className="blog-title-link" >{post.title}</a>
+            </Link>
+          </h2>
+          <div className="blog-text">
+            <ReactMarkdown source={post.details} />
+          </div>
+          <div className="blog-date">{post.createdAt}</div>
         </div>
-        <div className="blog-date">{post.createdAt}</div>
-      </div>
-    ))}
+      ))}
+    </div>
 
     <style jsx>{`
-      .container {
+      .blogs {
         max-width: 650px;
         width: 100%;
         margin: 0 auto;
@@ -37,20 +39,20 @@ const Create = ({ posts }) => (
         background: whitesmoke;
         border-radius: 10px;
       }
-
+      
       .hero {
         text-align: center;
         margin: 96px 0;
       }
-
+      
       .social-link {
         margin-right: 8px;
       }
-
+      
       .hero-title {
         font-size: 48px;
       }
-
+      
       .blog-date {
         text-align: right;
         font-weight: bold;
@@ -58,12 +60,12 @@ const Create = ({ posts }) => (
         margin: 12px 0 48px 0;
         padding: 10px;
       }
-
+      
       a {
         color: #35459e;
         text-decoration: none;
       }
-    `}</style>
+      `}</style>
   </div>
 );
 
@@ -73,7 +75,7 @@ Create.getInitialProps = async ({ req }) => {
   const res = await fetch("http://localhost:3001/api/posts");
   const json = await res.json();
 
-   return { posts: json.posts };
+  return { posts: json.posts };
 };
 
 export default Create;
