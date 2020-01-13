@@ -4,8 +4,10 @@ import Head from "next/head";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Nav from "../components/nav"
+import Footer from "../components/footer"
 // var moment = require('moment');
 // moment().format();
+
 
 const Home = ({ posts }) => (
   <div className="container">
@@ -16,21 +18,20 @@ const Home = ({ posts }) => (
         <title>Melih Blog</title>
       </Head>
       <div className="hero">
-        <h1 className="hero-title">Melih Özden Blog</h1>
-        {/* <div className="hero-social-links">
-        <Link href="https://medium.com/@selmankahya">
-        <a className="social-link">Medium</a>
-        </Link>
-        <Link href="https://www.twitter.com/selmankahyax">
-        <a className="social-link">Twitter</a>
-        </Link>
-        <Link href="https://www.linkedin.com/in/selmankahya">
-        <a className="social-link">LinkedIn</a>
-        </Link>
-        <Link href="https://www.instagram.com/selmankahyax/?hl=en">
-        <a className="social-link">Instagram</a>
-        </Link>
-      </div> */}
+          {/* <div className="hero-social-links">
+          <Link href="https://medium.com/@selmankahya" src="../icons/github.png">
+          <a className="social-link">Github</a>
+          </Link>
+          <Link href="https://www.twitter.com/selmankahyax">
+          <a className="social-link">Twitter</a>
+          </Link>
+          <Link href="https://www.linkedin.com/in/selmankahya">
+          <a className="social-link">LinkedIn</a>
+          </Link>
+          <Link href="https://www.instagram.com/selmankahyax/?hl=en">
+          <a className="social-link">Instagram</a>
+          </Link>
+        </div> */}
       </div>
 
       {posts.map((post, i) => (
@@ -50,15 +51,15 @@ const Home = ({ posts }) => (
 
     <style jsx>{`
       .blogs {
-        max-width: 40%;
+        max-width: 50%;
         width: 100%;
         margin: 0 auto;
       }
       .blog{
         padding: 5px 25px;
-        margin : 10px;
-        background: whitesmoke;
+        margin : 25px 50px;
         border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
       }
       .blog-title{
         font-weight:bold;
@@ -74,22 +75,24 @@ const Home = ({ posts }) => (
       }
 
       .hero-title {
-        font-size: 48px;
+        font-size: 36px;
+        margin-bottom : -25px;
       }
 
       .blog-date {
         text-align: right;
         font-weight: bold;
         color: #263548;
-        margin: 12px 0 48px 0;
+        margin: 48px 0 0 0;
         padding: 10px;
       }
 
       a {
-        color: #35459e;
+        color: #0c9463;
         text-decoration: none;
       }
     `}</style>
+    <Footer/>
   </div>
 );
 

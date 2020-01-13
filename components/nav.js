@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 const Nav = () => (
   <nav>
     <ul>
@@ -11,6 +13,9 @@ const Nav = () => (
       </li>
       <li>
         <a href="/profile">Profile</a>
+      </li>
+      <li>
+        <a href="/aboutme">About Me</a>
       </li>
       <li className="right">
         <a href="/login">Login</a>
