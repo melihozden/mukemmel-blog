@@ -49,6 +49,10 @@ const Nav = () => (
         font-size: 16px;
         font-weight:bold;
       }
+      .main-logo{
+        font-weight:bold;
+        padding: 4px 16px;
+      }
     `}</style>
   </nav>
 )

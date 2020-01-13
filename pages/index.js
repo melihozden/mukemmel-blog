@@ -50,13 +50,18 @@ const Home = ({ posts }) => (
 
     <style jsx>{`
       .blogs {
-        max-width: 650px;
+        max-width: 40%;
         width: 100%;
         margin: 0 auto;
       }
       .blog{
+        padding: 5px 25px;
+        margin : 10px;
         background: whitesmoke;
         border-radius: 10px;
+      }
+      .blog-title{
+        font-weight:bold;
       }
 
       .hero {
