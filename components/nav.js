@@ -20,9 +20,6 @@ const Nav = () => (
       <li className="right">
         <a href="/login">Login</a>
       </li>
-      <li className="right">
-        <a href="/register">Register</a>
-      </li>
     </ul>
 
     <style jsx>{`

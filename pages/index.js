@@ -5,6 +5,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Nav from "../components/nav"
 import Footer from "../components/footer"
+import Button from '@material-ui/core/Button';
 // var moment = require('moment');
 // moment().format();
 
@@ -18,6 +19,9 @@ const Home = ({ posts }) => (
         <title>Melih Blog</title>
       </Head>
       <div className="hero">
+        <Button variant="contained" color="primary">
+        Hello World
+      </Button>
           {/* <div className="hero-social-links">
           <Link href="https://medium.com/@selmankahya" src="../icons/github.png">
           <a className="social-link">Github</a>
