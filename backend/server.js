@@ -1,4 +1,3 @@
-
 const express = require('express')
 const server = express()
 const bodyParser = require('body-parser')
@@ -10,16 +9,6 @@ server.use(bodyParser.urlencoded({ extended: false }));
 
 const Post = require('../models/Post')
 
-// const post = new Post({
-//     title: 'Post Title 2',
-//     slug: 'post-title-2',
-//     details: 'Selman Kahya blog videosu için teşekkürler'
-// })
-
-// server.get('/',(req,res)=>{
-//     res.render
-// })
-
 server.get('/api/posts', (req, res) => {
     Post.find({}, function (err, posts) {
         if (err) { console.log(err) }
@@ -29,26 +18,29 @@ server.get('/api/posts', (req, res) => {
     });
 })
 
+server.get('/api/posts/:postId',(req,res)=>{
 
-// server.get('/:postId', (req, res) => {
+    const requestedPost = req.params.postId;
 
-//     const requestedPostId = req.params.postId;
+    Post.findOne({_id:requestedPost},(err,post)=>{
+        res.send({
+            postTitle: post.title,
+            postDetail: post.detail,
+            postDate: post.createdAt,
+        });
+    });
+})
 
-//     console.log("PARAMS : " + req.params.postId); 
-
-//     Post.findOne({ _id: requestedPostId }), (err, post) => {
-//         res.send({
-//             post: post
-//         })
-//     }
-// })
+server.post('/create',(req,res)=>{
+    const post = new Post({
+        title: req.body.postTitle,
+        detail:req.body.postDetail
+    }) 
+    post.save()
+     res.redirect('http://localhost:3000/create')
+})
 
 server.listen(process.env.BACKEND_PORT, () =>
     console.log(`Server is running on http://localhost:${process.env.BACKEND_PORT}/`));
-
-
-
-
-
 
 

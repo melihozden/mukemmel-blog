@@ -1,9 +1,16 @@
 import React from 'react'
+import AppBar from '@material-ui/core/AppBar';
+import Switch from '@material-ui/core/Switch';
+import { withStyles } from '@material-ui/core/styles';
 
 
+const appBarStyle = {
+  background : "white",
+  boxShadow : "none"
+}
 
 const Nav = () => (
-  <nav>
+<AppBar position="sticky" style={appBarStyle}>
     <ul>
       <li>
         <a href="/">Home</a>
@@ -17,19 +24,22 @@ const Nav = () => (
       <li>
         <a href="/aboutme">About Me</a>
       </li>
-      <li className="right">
+      <li>
         <a href="/login">Login</a>
+      </li>
+      <li className="switch">
+
       </li>
     </ul>
 
     <style jsx>{`
       :global(body) {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,Helvetica, sans-serif;
       }
       nav {
         text-align: center;
+        display:relative;
       }
       ul {
         display: flex;
@@ -46,7 +56,7 @@ const Nav = () => (
         margin: 12px;
       }
       a {
-        color: #0c9463;
+        color: #0582C6;
         text-decoration: none;
         font-size: 16px;
         font-weight:bold;
@@ -55,8 +65,8 @@ const Nav = () => (
         font-weight:bold;
         padding: 4px 16px;
       }
-    `}</style>
-  </nav>
+      `}</style>
+</AppBar>
 )
 
 export default Nav

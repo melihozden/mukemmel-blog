@@ -14,30 +14,9 @@ const Home = ({ posts }) => (
   <div className="container">
     <Nav />
     <div className="blogs">
-
       <Head>
         <title>Melih Blog</title>
       </Head>
-      <div className="hero">
-        <Button variant="contained" color="primary">
-        Hello World
-      </Button>
-          {/* <div className="hero-social-links">
-          <Link href="https://medium.com/@selmankahya" src="../icons/github.png">
-          <a className="social-link">Github</a>
-          </Link>
-          <Link href="https://www.twitter.com/selmankahyax">
-          <a className="social-link">Twitter</a>
-          </Link>
-          <Link href="https://www.linkedin.com/in/selmankahya">
-          <a className="social-link">LinkedIn</a>
-          </Link>
-          <Link href="https://www.instagram.com/selmankahyax/?hl=en">
-          <a className="social-link">Instagram</a>
-          </Link>
-        </div> */}
-      </div>
-
       {posts.map((post, i) => (
         <div className="blog" key={i}>
           <h2 className="blog-title">
@@ -46,7 +25,8 @@ const Home = ({ posts }) => (
             </Link>
           </h2>
           <div className="blog-text">
-            <ReactMarkdown source={post.details} />
+             {post.detail.substring(0, 100) + " ..."} 
+             <a href={post._id}>Read More</a>
           </div>
           <div className="blog-date">{post.createdAt}</div>
         </div>
@@ -92,7 +72,7 @@ const Home = ({ posts }) => (
       }
 
       a {
-        color: #0c9463;
+        color: #0582C6;
         text-decoration: none;
       }
     `}</style>

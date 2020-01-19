@@ -1,74 +1,54 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
 import Head from "next/head";
-import Link from "next/link";
+import Nav from "../components/nav"
 import ReactMarkdown from "react-markdown";
 
-const BlogPost = ({ post }) => (
+const BlogPost = ({post}) => (
   <div className="container">
+    <Nav />
     <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>{post.postTitle}</title>
     </Head>
-
-    <div className="hero">
-      <h1 className="hero-title">Selman Kahya</h1>
-      <div className="hero-social-links">
-        <Link href="https://medium.com/@selmankahya">
-          <a className="social-link">Medium</a>
-        </Link>
-        <Link href="https://www.twitter.com/selmankahyax">
-          <a className="social-link">Twitter</a>
-        </Link>
-        <Link href="https://www.linkedin.com/in/selmankahya">
-          <a className="social-link">LinkedIn</a>
-        </Link>
-        <Link href="https://www.instagram.com/selmankahyax/?hl=en">
-          <a className="social-link">Instagram</a>
-        </Link>
-      </div>
-    </div>
-
     <div className="blog">
       <h2 className="blog-title">
-        <Link href={post.slug}>
-          <a className="blog-title-link">{post.title}</a>
-        </Link>
+          {post.postTitle}
       </h2>
-      <div className="blog-text">
-        <ReactMarkdown source={post.details} />
+      <div className="relatedImage">
+
+        <img />
+
       </div>
-      <div className="blog-date">{post.date}</div>
+      <div className="blog-text">
+        <ReactMarkdown source={post.postDetail} />
+      </div>
+      <div className="blog-date">{post.postDate}</div>
     </div>
     <style jsx>{`
-      .container {
-        max-width: 650px;
+
+      img{
+          background-image: url(../images/moLogo.png);
+      }
+
+      .blog{
+        max-width: 680px;
         width: 100%;
         margin: 0 auto;
+        padding: 5px 25px;
+        border-radius: 10px;
       }
-
-      .hero {
-        text-align: center;
-        margin: 96px 0;
+      .blog-title{
+        font-weight:bold;
       }
-
-      .social-link {
-        margin-right: 8px;
+      .blog-text{
+        margin-top:50px;
       }
-
-      .hero-title {
-        font-size: 48px;
-      }
-
       .blog-date {
         text-align: right;
-        color: #cccccc;
-        margin: 12px 0 48px 0;
-      }
-
-      a {
-        color: #35459e;
-        text-decoration: none;
+        font-weight: bold;
+        color: #263548;
+        margin: 48px 0 0 0;
+        padding: 10px;
       }
     `}</style>
   </div>
@@ -76,14 +56,12 @@ const BlogPost = ({ post }) => (
 
 BlogPost.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  console.log("Query : " + query.postId)
+  // console.log("Query : " + query.postId)
   // const res = await fetch(`http://localhost:3001/${query.postId}`);
-  const res = await fetch(`http://localhost:3001/api/post/${query.postId}`);
+  const res = await fetch(`http://localhost:3001/api/posts/${query.postId}`);
   const json = await res.json();
-
-  console.log("JSON : "+json);
-
-  return { post: json.post };
+    // console.log(json);
+     return { post: json };
 };
 
 export default BlogPost;
