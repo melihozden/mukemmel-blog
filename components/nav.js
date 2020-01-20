@@ -5,12 +5,12 @@ import { withStyles } from '@material-ui/core/styles';
 
 
 const appBarStyle = {
-  background : "white",
-  boxShadow : "none"
+  background: "#1e2023",
+  boxShadow: "none"
 }
 
 const Nav = () => (
-<AppBar position="sticky" style={appBarStyle}>
+  <AppBar position="sticky" style={appBarStyle}>
     <ul>
       <li>
         <a href="/">Home</a>
@@ -35,6 +35,8 @@ const Nav = () => (
     <style jsx>{`
       :global(body) {
         margin: 0;
+        background-color:#1e2023;
+        color: white;
         font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,Helvetica, sans-serif;
       }
       nav {
@@ -66,7 +68,7 @@ const Nav = () => (
         padding: 4px 16px;
       }
       `}</style>
-</AppBar>
+  </AppBar>
 )
 
 export default Nav

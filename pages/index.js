@@ -6,8 +6,9 @@ import ReactMarkdown from "react-markdown";
 import Nav from "../components/nav"
 import Footer from "../components/footer"
 import Button from '@material-ui/core/Button';
-// var moment = require('moment');
-// moment().format();
+
+let moment = require('moment');
+
 
 
 const Home = ({ posts }) => (
@@ -25,10 +26,10 @@ const Home = ({ posts }) => (
             </Link>
           </h2>
           <div className="blog-text">
-             {post.detail.substring(0, 100) + " ..."} 
-             <a href={post._id}>Read More</a>
+            {post.detail.substring(0, 100) + " ..."}
+            <a href={post._id}>Read More</a>
           </div>
-          <div className="blog-date">{post.createdAt}</div>
+          <div className="blog-date">{moment(post.createdAt).format('ll')}</div>
         </div>
       ))}
     </div>
@@ -76,7 +77,7 @@ const Home = ({ posts }) => (
         text-decoration: none;
       }
     `}</style>
-    <Footer/>
+    <Footer />
   </div>
 );
 
