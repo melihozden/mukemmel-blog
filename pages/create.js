@@ -52,6 +52,7 @@ const buttonStyle = {
   float : "left",
 }
 
+//stateful yazmak zorunda kaldım. 
 class Create extends React.Component{
 
   constructor(){

@@ -26,6 +26,7 @@ server.get('/api/posts/:postId', (req, res) => {
         res.send({
             postTitle: post.title,
             postDetail: post.detail,
+            postLike : post.like,
             postDate: post.createdAt,
         });
     });

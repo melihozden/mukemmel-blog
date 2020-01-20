@@ -3,10 +3,13 @@ import AppBar from '@material-ui/core/AppBar';
 import Switch from '@material-ui/core/Switch';
 import { withStyles } from '@material-ui/core/styles';
 
+import { FaRegHeart } from 'react-icons/fa';
+
 
 const appBarStyle = {
-  background: "#1e2023",
-  boxShadow: "none"
+  background: "#fafafa",
+  // background: "#1e2023",
+  boxShadow: "none",
 }
 
 const Nav = () => (
@@ -28,15 +31,15 @@ const Nav = () => (
         <a href="/login">Login</a>
       </li>
       <li className="switch">
-
+        {/* Dark Mode will be written here */}
       </li>
     </ul>
 
     <style jsx>{`
       :global(body) {
         margin: 0;
-        background-color:#1e2023;
-        color: white;
+        background-color:#fafafa;
+        // color: white;
         font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,Helvetica, sans-serif;
       }
       nav {

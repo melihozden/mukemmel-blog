@@ -2,14 +2,13 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 import Head from "next/head";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
 import Nav from "../components/nav"
 import Footer from "../components/footer"
 import Button from '@material-ui/core/Button';
+import { FaRegHeart } from 'react-icons/fa';
+
 
 let moment = require('moment');
-
-
 
 const Home = ({ posts }) => (
   <div className="container">
@@ -30,6 +29,12 @@ const Home = ({ posts }) => (
             <a href={post._id}>Read More</a>
           </div>
           <div className="blog-date">{moment(post.createdAt).format('ll')}</div>
+          <div>
+              <button className="like-button">
+                <FaRegHeart size="1.8em" color="#c00000"/>
+                <div className="like">{post.like}</div>
+              </button>
+          </div>
         </div>
       ))}
     </div>
@@ -40,6 +45,9 @@ const Home = ({ posts }) => (
         width: 100%;
         margin: 0 auto;
       }
+      .like{
+        font-weight: bold;
+      }
       .blog{
         padding: 5px 25px;
         margin : 25px 50px;
@@ -49,7 +57,17 @@ const Home = ({ posts }) => (
       .blog-title{
         font-weight:bold;
       }
-
+      .like-button{
+        margin: 5px;
+        background : none ;
+        border : none; 
+      }
+      .like-button:hover{
+        cursor: pointer
+      }
+      .like-button:focus{
+        outline : 0 ;
+      }
       .hero {
         text-align: center;
         margin: 48px 0;
@@ -67,7 +85,7 @@ const Home = ({ posts }) => (
       .blog-date {
         text-align: right;
         font-weight: bold;
-        color: #263548;
+        color: #5c636e;
         margin: 48px 0 0 0;
         padding: 10px;
       }
