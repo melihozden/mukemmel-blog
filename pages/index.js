@@ -105,6 +105,7 @@ Home.getInitialProps = async ({ req }) => {
   const res = await fetch("http://localhost:3001/api/posts");
   const json = await res.json();
 
+
   return { posts: json.posts };
 };
 

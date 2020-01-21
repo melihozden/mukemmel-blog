@@ -27,11 +27,10 @@ const detailsStyle = {
   maxWidth: "50%",
   minHeight: "50px",
   margin: "10px",
-  paddingTop: "25px",
+  padding: "10px",
   fontSize: "18px",
-  border: "none",
+  borderRadius : "10px",
   fontWeight: "bold",
-  borderBottom: "1px solid grey"
 }
 
 const alertStyle = {
@@ -41,7 +40,6 @@ const alertStyle = {
 const buttonStyle = {
   fontSize : "16px",
   width: "120px",
-  border: "none",
   marginTop : "15px",
   padding: "10px",
   borderRadius: "10px",
@@ -52,7 +50,7 @@ const buttonStyle = {
   float : "left",
 }
 
-//stateful yazmak zorunda kaldım. 
+// post işlemi yapıldı onayı için (yukarıda çıkan yeşil bildirim) componenti stateful yazmak zorunda kaldım. 
 class Create extends React.Component{
 
   constructor(){
@@ -98,9 +96,6 @@ class Create extends React.Component{
         </form>
       </div>
      
-
-
-
     <style jsx>{`
       .form-div{
         max-width: 75%;

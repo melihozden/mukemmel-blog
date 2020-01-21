@@ -15,18 +15,20 @@ const counter = {
 }
 
 const textAreaStyle = {
-  marginTop : "50px",
-  maxWidth: "680px",
-  minWidth: "680px",
+  marginTop : "25px",
+  padding: "10px",
+  fontSize: "14px",
+  maxWidth: "100%",
+  minWidth: "100%",
   maxHeight: "250px",
   minHeight: "150px",
   width: "100%",
   borderRadius : "10px",
-
 }
 const buttonStyle = {
   fontSize : "16px",
   width: "80px",
+  maxWidth : "100%",
   border: "none",
   marginTop : "15px",
   padding: "10px",
@@ -48,7 +50,8 @@ const buttonClicked = () =>{
   }
 }
 
-const BlogPost = ({post}) => (
+// Her post ile anlamlı resim koyma kullanıcı tarafından koyulacak 
+const BlogPost = ({post,comments}) => (
   <div className="container">
     <Nav />
     <Head>
@@ -82,17 +85,50 @@ const BlogPost = ({post}) => (
           </li>
         </ul>
     </div>
-    {showCommentArea && 
-     <div>
-        <textarea style={textAreaStyle}></textarea>
+    {!showCommentArea && 
+     <div className="comment-div">
+      <form  method="POST" action={`http://localhost:3001/comment/${post.postId}`}>
+        <textarea style={textAreaStyle} name="commentContent"></textarea>
         <button style={buttonStyle} type="submit" variant="contained" name="button" color="primary">Submit</button>
+       </form>
       </div>
       }
+        <h3 className="comment-title">Comments ({comments.length})</h3>
+      <div className="comments">
+        {comments.map((comment, i) => (
+          <div className="comment"> 
+            {comment.content}
+            <div className="comment-date">{moment(comment.createdAt).format('ll')}</div>
+          </div>
+        ))}
+      </div>
+
     </div>
     <style jsx>{`
 
       img{
           background-image: url(../images/moLogo.png);
+      }
+      .comment-div{
+        width: 665px;
+        height: 275px;
+      }
+      .comments{
+        margin-left : 50px;
+        margin-top : 10px;
+        width : 100%;
+      }
+      .comment{
+        margin : 10px;
+        padding : 25px;
+        font-size: 14px;
+        border-bottom: 1px solid ;
+      }
+      .comment-date {
+        text-align: right;
+        font-weight: bold;
+        color: #5c636e;
+        padding: 10px;
       }
       ul{
         margin: 0px;
@@ -142,9 +178,14 @@ BlogPost.getInitialProps = async ({ req, query }) => {
   // console.log("Query : " + query.postId)
   // const res = await fetch(`http://localhost:3001/${query.postId}`);
   const res = await fetch(`http://localhost:3001/api/posts/${query.postId}`);
+  const res2 = await fetch(`http://localhost:3001/comments/${query.postId}`);
+  // const res2 = await fetch(`http://localhost:3001/comments`);
   const json = await res.json();
+  const json2 = await res2.json();
     // console.log(json);
-     return { post : json };
+    console.log(json2)
+
+     return { post : json,comments:json2.comments };
 };
 
 export default BlogPost;
