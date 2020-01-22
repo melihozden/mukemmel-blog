@@ -1,9 +1,7 @@
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Switch from '@material-ui/core/Switch';
-import { withStyles } from '@material-ui/core/styles';
 
-import { FaRegHeart } from 'react-icons/fa';
 
 
 const appBarStyle = {
@@ -15,6 +13,9 @@ const appBarStyle = {
 const Nav = () => (
   <AppBar position="sticky" style={appBarStyle}>
     <ul>
+      <li className="logo">
+        <a href="/"><img src={require('../images/blacktrans4x.png')} width="60" height="40" alt="Logo" /></a>
+      </li>
       <li>
         <a href="/">Home</a>
       </li>
@@ -41,6 +42,9 @@ const Nav = () => (
         background-color:#fafafa;
         // color: white;
         font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,Helvetica, sans-serif;
+      }
+      .logo{
+        margin : 0px !important;
       }
       nav {
         text-align: center;
