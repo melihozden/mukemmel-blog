@@ -23,7 +23,7 @@ const Nav = () => (
         <a href="/profile">Profile</a>
       </li>
       <li>
-        <a href="/aboutme">About Me</a>
+        <a href="/about">About Me</a>
       </li>
       <li>
         <a href="/login">Login</a>
