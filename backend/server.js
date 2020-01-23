@@ -32,13 +32,16 @@ server.get('/api/posts/:postId', (req, res) => {
     });
 })
 
-server.post('/create/:postId', (req, res) => {
-    const post = new Post({
-        title: req.body.postTitle,
-        detail: req.body.postDetail
-    })
-    post.save()
-    res.redirect('http://localhost:3000/create')
+server.post('/create', (req, res) => {
+
+    res.send(req.body)
+
+    // const post = new Post({
+    //     title: req.body.postTitle,
+    //     detail: req.body.postDetail
+    // })
+    // post.save()
+    // res.redirect('http://localhost:3000/create')
 })
 
 server.post('/comment/:postId',(req,res) => {

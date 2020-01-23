@@ -20,7 +20,7 @@ const textAreaStyle = {
   fontSize: "14px",
   maxWidth: "100%",
   minWidth: "100%",
-  maxHeight: "250px",
+  maxHeight: "150px",
   minHeight: "150px",
   width: "100%",
   borderRadius: "10px",

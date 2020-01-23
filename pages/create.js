@@ -7,8 +7,10 @@ import TextField from '@material-ui/core/TextField';
 import TextArea from '@material-ui/core/TextareaAutosize';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import Alert from '@material-ui/lab/Alert';
-import AccountCircle from '@material-ui/icons/AccountBox';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 // var moment = require('moment');
 // moment().format();
@@ -22,8 +24,9 @@ const titleStyle = {
   fontWeight: "bold",
 }
 const detailsStyle = {
-  width: "50%",
   height: "250px",
+  maxWidth: "50%",
+  minWidth: "50%",
   maxWidth: "50%",
   minHeight: "50px",
   margin: "10px",
@@ -43,13 +46,57 @@ const buttonStyle = {
   marginTop : "15px",
   padding: "10px",
   borderRadius: "10px",
+  border: "none",
   fontWeight : "bold",
   color : "white",
   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
   backgroundColor: "#0582C6",
   float : "left",
 }
+const comboBoxStyle = {
+  margin: "0 auto",
+  width:"50%",
+  borderRadius : "10px",
+  textAlign:"center"
+}
 
+const tags = [
+  'Agriculture',
+  'Animals & Pets',
+  'Architectural',
+  'Arts',
+  'Automotive & Vehicle',
+  'Bussiness & Vehicle',
+  'C#',
+  'Children & Childcare',
+  'Computer',
+  'Construction & Tools',
+  'Dating',
+  'Education',
+  'Entertainment',
+  'Environmental & Green',
+  'Fashion & Beauty',
+  'Food & Drink',
+  'Games',
+  'Home & Design',
+  'Industrial',
+  'Internet',
+  'IT',
+  'Java',
+  'Javascript',
+  'Medical',
+  'Photography',
+  'Politics',
+  'Programming',
+  'Religion',
+  'Retail',
+  'Security',
+  'Spa & Esthetics',
+  'Sport',
+  'Technology',
+  'Travel & Hotel',
+  
+];
 // post işlemi yapıldı onayı için (yukarıda çıkan yeşil bildirim) componenti stateful yazmak zorunda kaldım. 
 class Create extends React.Component{
 
@@ -88,8 +135,19 @@ class Create extends React.Component{
             <Grid item>
               <TextArea style={detailsStyle} placeholder="..." name="postDetail"/>
             </Grid>
+            {/* <Select
+              labelId="demo-mutiple-name-label"
+              id="demo-mutiple-name"
+              multiple
+              >
+              {tags.map(name => (
+                <MenuItem key={name} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
+            </Select> */}
             <div className="button-div">
-              <button style={buttonStyle} type="submit" variant="contained" name="button" color="primary">
+              <button style={buttonStyle} type="submit" variant="contained" color="primary">
               Publish
             </button>
             </div>
@@ -98,8 +156,7 @@ class Create extends React.Component{
      
     <style jsx>{`
       .form-div{
-        max-width: 75%;
-        width: 100%;
+        height : 100%;
         margin: 0 auto;
         border-radius: 10px;
         text-align:center;

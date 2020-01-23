@@ -17,10 +17,7 @@ const Nav = () => (
         <a href="/"><img src={require('../images/blacktrans4x.png')} width="60" height="40" alt="Logo" /></a>
       </li>
       <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/create">Create</a>
+        <a href="/create">Make a Post</a>
       </li>
       <li>
         <a href="/profile">Profile</a>
