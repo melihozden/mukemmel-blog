@@ -26,7 +26,7 @@ server.get('/api/posts/:postId', (req, res) => {
             postId: post._id,
             postTitle: post.title,
             postDetail: post.detail,
-            postLike : post.like,
+            postLike: post.like,
             postDate: post.createdAt,
         });
     });
@@ -44,26 +44,33 @@ server.post('/create', (req, res) => {
     // res.redirect('http://localhost:3000/create')
 })
 
-server.post('/comment/:postId',(req,res) => {
-    const requestedId = req.params.postId ;
-    
+server.post('/comment/:postId', (req, res) => {
+    const requestedId = req.params.postId;
+
     const comment = new Comment({
-        postId : requestedId,
-        content : req.body.commentContent,
+        postId: requestedId,
+        content: req.body.commentContent,
     })
     comment.save();
     res.redirect(`http://localhost:3000/${requestedId}`);
 })
 
-server.get('/comments/:postId',(req,res) => {
-    const requestedId = req.params.postId ;
-    Comment.find({postId:requestedId }, function (err, comments) {
+server.get('/comments/:postId', (req, res) => {
+    const requestedId = req.params.postId;
+    Comment.find({ postId: requestedId }, function (err, comments) {
         if (err) { console.log(err) }
         res.send({
             comments: comments,
         });
     });
 })
+
+server.post('/register', (req, res) => {
+    // User registeration here 
+    res.send(req.body)
+})
+
+
 
 server.listen(process.env.BACKEND_PORT || 3001, () =>
     console.log(`Server is running on http://localhost:${process.env.BACKEND_PORT}/`));
