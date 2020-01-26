@@ -52,39 +52,55 @@ const About = () => (
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
+          <div className="socialtitle">
+            <h2>Follow me on social media</h2>
+          </div>
+          <ul>
+                <li>
+                  <div className="social-div">
+                    <a href="#"><img src={require('../icons/github.png')}/></a>
+                  </div>
+                </li>
+                <li>
+                <div className="social-div">
+                  <a href="#"><img src={require('../icons/instagram.png')}/></a>
+                  </div>
+                </li>
+                <li>
+                <div className="social-div">
+                  <a href="#"><img src={require('../icons/linkedin.png')}/></a>
+                  </div>
+                </li>
+                <li>
+                <div className="social-div">
+                  <a href="#"><img src={require('../icons/twitter.png')}/></a>
+                  </div>
+                </li>
+                <li>
+                <div className="social-div">
+                  <a href="#"><img src={require('../icons/youtube.png')}/></a>
+                  </div>
+                </li>
+                <li>
+                <div className="social-div">
+                  <a href="#"><img src={require('../icons/twitch.png')}/></a>
+                  </div>
+                </li>
+              </ul>
       </Grid>
       <Grid item xs={3}>
         <div className="developerPhoto">
-          <img src={require('../images/pphoto.jpg')}  width="350px" height="350px"alt="computer" className="community-img" />
+          <img src={require('../images/pphoto.jpg')}  width="350px" height="350px"alt="computer" className="p-img" />
          
         </div>
       </Grid>
       <Grid item xs={2}>
         <div>
-        
 
         </div>
       </Grid>
     </Grid>
       </div>
-       
-       <Grid container>
-        <Grid item xs={2}>
-          <div>
-
-          </div>
-        </Grid>
-        <Grid item xs={8} className="social">
-          <div>
-            
-          </div>
-        </Grid>
-        <Grid item xs={2}>
-           <div>
-            
-          </div>
-        </Grid>
-       </Grid>
     <style jsx>{`
     .developerPhoto{
       margin : 75px 50px;
@@ -95,16 +111,30 @@ const About = () => (
     .outer{
       margin-top : 50px;
     }
-    img{
+    .p-img{
       border-radius : 50%;
     }
-    .social{
-      width : 100%;
-      background: black;
+    .socialtitle{
+      margin : 25px;
+      font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,Helvetica, sans-serif;
+      text-align: center;
+    }
+    .social-div{
+      padding : 15px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius : 50% ;
+    }
+    .social-div:hover{
+      transition: 0.25s;
+      box-shadow: 0 8px 16px 8px rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.2);
     }
     ul{
+      text-align: center;
       display : flex ; 
       list-style-type: none;
+    }
+    li{
+      margin : 0px 20px;
     }
     .icon{
       margin : 25px;

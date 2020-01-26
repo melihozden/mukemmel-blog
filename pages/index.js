@@ -104,6 +104,7 @@ const Home = ({ posts }) => (
       label{
         font-size : 14px;
         font-weight : bold ;
+        color : black ;
       }
       .blog{
         padding: 5px 25px;
@@ -174,11 +175,13 @@ const Home = ({ posts }) => (
         margin : 15px;
       }
       .register-title{
+        color : black;
         font-size : 24px;
         font-weight : bold ;
         font-family : Andale Mono, monospace;
       }
       .register-subtitle{
+        color : black;
         margin-top : 20px;
         font-size: 18px;
         font-weight : bold ;

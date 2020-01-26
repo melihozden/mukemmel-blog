@@ -9,6 +9,9 @@ const appBarStyle = {
   // background: "#1e2023",
   boxShadow: "none",
 }
+const darkModeStyle = {
+  color : "#000",
+}
 
 const Nav = () => (
   <AppBar position="sticky" style={appBarStyle}>
@@ -28,8 +31,8 @@ const Nav = () => (
       <li>
         <a href="/login">Login</a>
       </li>
-      <li className="switch">
-        {/* Dark Mode will be written here */}
+      <li style={darkModeStyle}>
+        <button>Dark Mode</button>
       </li>
     </ul>
 
@@ -37,7 +40,7 @@ const Nav = () => (
       :global(body) {
         margin: 0;
         background-color:#fafafa;
-        // color: white;
+        //color: white;
         font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,Helvetica, sans-serif;
       }
       .logo{
@@ -48,18 +51,18 @@ const Nav = () => (
         display:relative;
       }
       ul {
-        display: flex;
       }
       nav > ul {
         padding: 4px 16px;
       }
-      .right{
-        float:right;
-      }
       li {
-        display: flex;
         padding: 6px 8px;
         margin: 12px;
+        float:left;
+        list-style-type: none;
+      }
+      li:last-child{
+        float:right;
       }
       a {
         color: #0582C6;
@@ -70,6 +73,16 @@ const Nav = () => (
       .main-logo{
         font-weight:bold;
         padding: 4px 16px;
+      }
+      button{
+        width : 100px;
+        height : 25px;
+        border : 1px solid black ;
+        border-radius :  10px ; 
+        background : none ;
+      }
+      button:hover{
+        cursor : pointer;
       }
       `}</style>
   </AppBar>

@@ -40,19 +40,18 @@ const alertStyle = {
   width:"50%",
   margin:"auto"
 }
-const buttonStyle = {
-  fontSize : "16px",
-  width: "120px",
-  marginTop : "15px",
-  padding: "10px",
-  borderRadius: "10px",
-  border: "none",
-  fontWeight : "bold",
-  color : "white",
-  boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-  backgroundColor: "#0582C6",
-  float : "left",
-}
+// const buttonStyle = {
+//   fontSize : "16px",
+//   width: "120px",
+//   marginTop : "15px",
+//   padding: "10px",
+//   borderRadius: "10px",
+//   border: "none",
+//   fontWeight : "bold",
+//   color : "white",
+//   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+//   backgroundColor: "#0582C6",
+// }
 const comboBoxStyle = {
   margin: "0 auto",
   width:"50%",
@@ -143,11 +142,9 @@ class Create extends React.Component{
                 }
                 </select>
               <TextArea style={detailsStyle} placeholder="..." name="postDetail"/>
-              <div className="button-div">
-                <button style={buttonStyle} type="submit" variant="contained" color="primary">
+                <button type="submit">
                 Publish
               </button>
-              </div>
             </Grid>
             <Grid item xs={3}></Grid>
             </Grid>
@@ -173,6 +170,19 @@ class Create extends React.Component{
       .button-div{
         width:50%;
         margin:auto;
+      }
+      button{
+        width: 120px;
+        padding: 10px;
+        margin : 15px 10px;
+        font-size : 16px;
+        border-radius: 10px;
+        border: none;
+        font-weight : bold;
+        color : white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: #0582C6;
+        float : left ;
       }
       h1{
         font-family: Arial sans-serif;
