@@ -5,14 +5,13 @@ import Nav from "../components/nav"
 import ReactMarkdown from "react-markdown";
 import Alert from '@material-ui/lab/Alert';
 import { FaRegHeart } from 'react-icons/fa';
+import { FaTag } from 'react-icons/fa';
 import { MdInsertComment } from 'react-icons/md';
 let moment = require('moment');
 
 const counter = {
 
 }
-
-
 const textAreaStyle = {
   marginTop: "25px",
   padding: "10px",
@@ -37,7 +36,9 @@ const buttonStyle = {
   backgroundColor: "#0582C6",
   float: "left",
 }
-
+const tagIcon = {
+  marginRight : "10px",
+}
 
 // Her post ile anlamlı resim koyma kullanıcı tarafından koyulacak 
 class BlogPost extends React.Component {
@@ -68,6 +69,12 @@ class BlogPost extends React.Component {
           <h2 className="blog-title">
             {post.postTitle}
           </h2>
+          {post.postTag!="No Tag" && 
+            <div className="blog-tag">
+              <FaTag size="1em" color="#5c636e" style={tagIcon}/>
+               {post.postTag}
+            </div>
+            }
           {/* <div className="relatedImage">
           <img />
         </div> */}
@@ -162,6 +169,12 @@ class BlogPost extends React.Component {
     margin: 0 auto;
     padding: 5px 25px;
     border-radius: 10px;
+  }
+  .blog-tag{
+    text-align : right ;
+    font-size : 16px; 
+    font-weight: bold ; 
+    color : #5c636e;
   }
   .blog-title{
     font-weight:bold;

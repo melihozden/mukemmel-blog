@@ -16,19 +16,19 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 // moment().format();
 
 const titleStyle = {
-  width: "50%",
+  width: "100%",
   height: "50px",
-  margin: "25px",
+  margin: "15px 15px",
   fontSize: "48px",
   border: "none",
   fontWeight: "bold",
 }
 const detailsStyle = {
   height: "250px",
-  maxWidth: "50%",
-  minWidth: "50%",
-  maxWidth: "50%",
-  minHeight: "50px",
+  maxWidth: "100%",
+  minWidth: "100%",
+  maxHeight: "50%",
+  minHeight: "150px",
   margin: "10px",
   padding: "10px",
   fontSize: "18px",
@@ -61,6 +61,7 @@ const comboBoxStyle = {
 }
 
 const tags = [
+  'No Tag',
   'Agriculture',
   'Animals & Pets',
   'Architectural',
@@ -129,35 +130,43 @@ class Create extends React.Component{
     <div className="form-div">
       <h1>Post a Blog</h1>
         <form className="createForm" method="POST" onSubmit={event => {this.handleSubmit(event)}} action="http://localhost:3001/create">
-            <Grid item>
+          <Grid container>
+            <Grid item xs={3}></Grid>
+
+            <Grid item xs={6}>
               <TextField size="normal" label="Title" style={titleStyle} name="postTitle"/>
-            </Grid>
-            <Grid item>
+              <select name="postTag">
+                {
+                  tags.map((tag,i) =>(
+                  <option key={i} value={tag}>{tag}</option>
+                ))
+                }
+                </select>
               <TextArea style={detailsStyle} placeholder="..." name="postDetail"/>
+              <div className="button-div">
+                <button style={buttonStyle} type="submit" variant="contained" color="primary">
+                Publish
+              </button>
+              </div>
             </Grid>
-            {/* <Select
-              labelId="demo-mutiple-name-label"
-              id="demo-mutiple-name"
-              multiple
-              >
-              {tags.map(name => (
-                <MenuItem key={name} value={name}>
-                  {name}
-                </MenuItem>
-              ))}
-            </Select> */}
-            <div className="button-div">
-              <button style={buttonStyle} type="submit" variant="contained" color="primary">
-              Publish
-            </button>
-            </div>
+            <Grid item xs={3}></Grid>
+            </Grid>
         </form>
       </div>
      
     <style jsx>{`
+    label{
+      width : 100%;
+    }
+      select{
+        float :left ;
+        font-size : 14px;
+        margin-left : 10px;
+         width : 200px; 
+         height : 40px;
+      }
       .form-div{
         height : 100%;
-        margin: 0 auto;
         border-radius: 10px;
         text-align:center;
       }    

@@ -26,6 +26,7 @@ server.get('/api/posts/:postId', (req, res) => {
             postId: post._id,
             postTitle: post.title,
             postDetail: post.detail,
+            postTag : post.tag,
             postLike: post.like,
             postDate: post.createdAt,
         });
@@ -34,14 +35,15 @@ server.get('/api/posts/:postId', (req, res) => {
 
 server.post('/create', (req, res) => {
 
-    res.send(req.body)
+    // res.send(req.body)
 
-    // const post = new Post({
-    //     title: req.body.postTitle,
-    //     detail: req.body.postDetail
-    // })
-    // post.save()
-    // res.redirect('http://localhost:3000/create')
+    const post = new Post({
+        title: req.body.postTitle,
+        tag:  req.body.postTag,
+        detail: req.body.postDetail
+    })
+    post.save()
+    res.redirect('http://localhost:3000/create')
 })
 
 server.post('/comment/:postId', (req, res) => {

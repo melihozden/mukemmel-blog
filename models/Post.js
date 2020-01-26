@@ -5,6 +5,9 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    tag: {
+        type: String,
+    },
     detail: {
         type: String,
     },

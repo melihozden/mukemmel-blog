@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import { FaRegHeart } from 'react-icons/fa';
+import { FaTag } from 'react-icons/fa';
 
 
 let moment = require('moment');
@@ -21,6 +22,9 @@ const registerStyle = {
   fontSize: "16px",
   fontWeight: "bold",
 }
+const tagIcon = {
+  marginRight : "10px",
+}
 
 const Home = ({ posts }) => (
   <div className="container">
@@ -30,12 +34,12 @@ const Home = ({ posts }) => (
     </Head>
     <div className="welcome">
       <Grid container>
-        <Grid item xs={5}>
+        <Grid item xs={6}>
           <div className="community">
             <img src={require('../images/computer.png')} width="500" alt="computer" className="community-img" />
           </div>
         </Grid>
-        <Grid item xs={7} >
+        <Grid item xs={6} >
           <div className="register">
             <div className="register-title"> Welcome Blogger! We all excited to see your Posts </div>
             <div className="register-subtitle"> Register and share your opinions </div>
@@ -51,7 +55,6 @@ const Home = ({ posts }) => (
               </form>
             </div>
           </div>
-
         </Grid>
       </Grid>
 
@@ -63,6 +66,13 @@ const Home = ({ posts }) => (
       {posts.map((post, i) => (
         <div className="blog" key={i}>
           <h2 className="blog-title">
+            {post.tag!="No Tag" && 
+            <div className="blog-tag">
+              <FaTag size="1em" color="#5c636e" style={tagIcon}/>
+               {post.tag}
+            </div>
+            }
+              
             <Link href={post._id}>
               <a className="blog-title-link">{post.title}</a>
             </Link>
@@ -84,9 +94,9 @@ const Home = ({ posts }) => (
 
     <style jsx>{`
       .blogs {
-        max-width: 50%;
-        width: 100%;
         margin: 0 auto;
+        max-width: 55%;
+        width: 100%;
       }
       .like{
         font-weight: bold;
@@ -103,6 +113,19 @@ const Home = ({ posts }) => (
       }
       .blog-title{
         font-weight:bold;
+      }
+      .blog-tag{
+        text-align : right ;
+        font-size : 16px; 
+        font-weight: bold ; 
+        color : #5c636e;
+      }
+      .blog-date {
+        text-align: right;
+        font-weight: bold;
+        color: #5c636e;
+        margin: 48px 0 0 0;
+        padding: 10px;
       }
       .like-button{
         margin: 5px;
@@ -125,13 +148,6 @@ const Home = ({ posts }) => (
       .hero-title {
         font-size: 36px;
         margin-bottom : -25px;
-      }
-      .blog-date {
-        text-align: right;
-        font-weight: bold;
-        color: #5c636e;
-        margin: 48px 0 0 0;
-        padding: 10px;
       }
       a {
         color: #0582C6;
@@ -198,6 +214,7 @@ Home.getInitialProps = async ({ req }) => {
   const res = await fetch("http://localhost:3001/api/posts");
   const json = await res.json();
 
+  console.log(json.posts)
 
   return { posts: json.posts };
 };
