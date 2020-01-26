@@ -128,7 +128,7 @@ class Create extends React.Component{
       }
     <div className="form-div">
       <h1>Post a Blog</h1>
-        <form className="createForm" method="POST" onSubmit={event => {this.handleSubmit(event)}} action="http://localhost:3001/create">
+        <form className="createForm" method="POST" onSubmit={event => {this.handleSubmit(event)}} action="https://melihozden.herokuapp.com/create">
           <Grid container>
             <Grid item xs={3}></Grid>
 

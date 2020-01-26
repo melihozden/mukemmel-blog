@@ -95,8 +95,8 @@ const Home = ({ posts }) => (
     <style jsx>{`
       .blogs {
         margin: 0 auto;
-        max-width: 55%;
-        width: 100%;
+        min-width: 750px;
+        width: 55%;
       }
       .like{
         font-weight: bold;
@@ -165,7 +165,7 @@ const Home = ({ posts }) => (
       .register{
         margin : 60px 10px;
         padding : 20px 20px;
-        width: 40%;
+        width: 350px;
         background : #fafafa;
         border-radius: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
@@ -214,10 +214,8 @@ const Home = ({ posts }) => (
 Home.getInitialProps = async ({ req }) => {
 
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3001/api/posts");
+  const res = await fetch("https://melihozden.herokuapp.com/api/posts");
   const json = await res.json();
-
-  console.log(json.posts)
 
   return { posts: json.posts };
 };

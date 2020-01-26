@@ -201,8 +201,8 @@ BlogPost.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   // console.log(query)
   // const res = await fetch(`http://localhost:3001/${query.postId}`);
-  const res = await fetch(`http://localhost:3001/api/posts/${query.postId}`);
-  const res2 = await fetch(`http://localhost:3001/comments/${query.postId}`);
+  const res = await fetch(`https://melihozden.herokuapp.com/api/posts/${query.postId}`);
+  const res2 = await fetch(`https://melihozden.herokuapp.com/comments/${query.postId}`);
   const json = await res.json();
   const json2 = await res2.json();
   return { post: json, comments: json2.comments };

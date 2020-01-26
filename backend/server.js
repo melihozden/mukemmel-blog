@@ -2,13 +2,17 @@ const express = require('express')
 const server = express()
 const bodyParser = require('body-parser')
 require('dotenv').config({ path: '../.env' });
-require('../database/database');
+require('./database/database');
 
 server.use(bodyParser.urlencoded({ extended: false }));
 // server.use(express.static("public"));
 
-const Post = require('../models/Post')
-const Comment = require('../models/Comment')
+const Post = require('./models/Post')
+const Comment = require('./models/Comment')
+
+server.get('/',(req,res)=>{
+    res.send("Everything works successfully")
+})
 
 server.get('/api/posts', (req, res) => {
     Post.find({}, function (err, posts) {
@@ -43,6 +47,7 @@ server.post('/create', (req, res) => {
         detail: req.body.postDetail
     })
     post.save()
+    // ileride değişecek
     res.redirect('http://localhost:3000/create')
 })
 
@@ -74,7 +79,7 @@ server.post('/register', (req, res) => {
 
 
 
-server.listen(process.env.BACKEND_PORT || 3001, () =>
+server.listen(process.env.PORT || 3001, () =>
     console.log(`Server is running on http://localhost:${process.env.BACKEND_PORT}/`));
 
 
