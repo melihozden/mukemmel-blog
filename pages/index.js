@@ -23,7 +23,7 @@ const registerStyle = {
   fontWeight: "bold",
 }
 const tagIcon = {
-  marginRight : "10px",
+  marginRight: "10px",
 }
 
 const Home = ({ posts }) => (
@@ -44,7 +44,7 @@ const Home = ({ posts }) => (
             <div className="register-title"> Welcome Blogger! We all excited to see your Posts </div>
             <div className="register-subtitle"> Register and share your opinions </div>
             <div className="register-content">
-              <form method="POST" action={`http://localhost:3001/register`}>
+              <form method="POST" action={`https://melihozden.herokuapp.com/register`}>
                 <label>Username</label>
                 <input type="text" style={registerStyle} name="userName" />
                 <label>Email</label>
@@ -66,13 +66,13 @@ const Home = ({ posts }) => (
       {posts.map((post, i) => (
         <div className="blog" key={i}>
           <h2 className="blog-title">
-            {post.tag!="No Tag" && 
-            <div className="blog-tag">
-              <FaTag size="1em" color="#5c636e" style={tagIcon}/>
-               {post.tag}
-            </div>
+            {post.tag != "No Tag" &&
+              <div className="blog-tag">
+                <FaTag size="1em" color="#5c636e" style={tagIcon} />
+                {post.tag}
+              </div>
             }
-              
+
             <Link href={post._id}>
               <a className="blog-title-link">{post.title}</a>
             </Link>

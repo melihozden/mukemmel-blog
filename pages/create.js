@@ -32,13 +32,13 @@ const detailsStyle = {
   margin: "10px",
   padding: "10px",
   fontSize: "18px",
-  borderRadius : "10px",
+  borderRadius: "10px",
   fontWeight: "bold",
 }
 
 const alertStyle = {
-  width:"50%",
-  margin:"auto"
+  width: "50%",
+  margin: "auto"
 }
 // const buttonStyle = {
 //   fontSize : "16px",
@@ -54,9 +54,9 @@ const alertStyle = {
 // }
 const comboBoxStyle = {
   margin: "0 auto",
-  width:"50%",
-  borderRadius : "10px",
-  textAlign:"center"
+  width: "50%",
+  borderRadius: "10px",
+  textAlign: "center"
 }
 
 const tags = [
@@ -95,15 +95,15 @@ const tags = [
   'Sport',
   'Technology',
   'Travel & Hotel',
-  
+
 ];
 // post işlemi yapıldı onayı için (yukarıda çıkan yeşil bildirim) componenti stateful yazmak zorunda kaldım. 
-class Create extends React.Component{
+class Create extends React.Component {
 
-  constructor(){
+  constructor() {
     super()
     this.state = {
-      success : false // success alert false at the beginning
+      success: false // success alert false at the beginning
     }
   }
   handleSubmit = (e) => {
@@ -111,47 +111,47 @@ class Create extends React.Component{
       success: true
     })
   }
-  render(){
+  render() {
     const { success } = this.state;
-    return(
+    return (
       <div className="container">
-    <Nav />
-    <Head>
-      <title>Create Post</title>
-    </Head>
-    {success && 
-     <div style={alertStyle}>
-        <Alert variant="filled" severity="success">
-         Post has been publish successfully!
+        <Nav />
+        <Head>
+          <title>Create Post</title>
+        </Head>
+        {success &&
+          <div style={alertStyle}>
+            <Alert variant="filled" severity="success">
+              Post has been publish successfully!
         </Alert>
-      </div>
-      }
-    <div className="form-div">
-      <h1>Post a Blog</h1>
-        <form className="createForm" method="POST" onSubmit={event => {this.handleSubmit(event)}} action="https://melihozden.herokuapp.com/create">
-          <Grid container>
-            <Grid item xs={3}></Grid>
+          </div>
+        }
+        <div className="form-div">
+          <h1>Post a Blog</h1>
+          <form className="createForm" method="POST" onSubmit={event => { this.handleSubmit(event) }} action="https://melihozden.herokuapp.com/create">
+            <Grid container>
+              <Grid item xs={3}></Grid>
 
-            <Grid item xs={6}>
-              <TextField size="normal" label="Title" style={titleStyle} name="postTitle"/>
-              <select name="postTag">
-                {
-                  tags.map((tag,i) =>(
-                  <option key={i} value={tag}>{tag}</option>
-                ))
-                }
+              <Grid item xs={6}>
+                <TextField size="normal" label="Title" style={titleStyle} name="postTitle" />
+                <select name="postTag">
+                  {
+                    tags.map((tag, i) => (
+                      <option key={i} value={tag}>{tag}</option>
+                    ))
+                  }
                 </select>
-              <TextArea style={detailsStyle} placeholder="..." name="postDetail"/>
+                <TextArea style={detailsStyle} placeholder="..." name="postDetail" />
                 <button type="submit">
-                Publish
+                  Publish
               </button>
+              </Grid>
+              <Grid item xs={3}></Grid>
             </Grid>
-            <Grid item xs={3}></Grid>
-            </Grid>
-        </form>
-      </div>
-     
-    <style jsx>{`
+          </form>
+        </div>
+
+        <style jsx>{`
     label{
       width : 100%;
     }
@@ -189,19 +189,10 @@ class Create extends React.Component{
       }
       
       `}</style>
-  </div>
-
-// Create.getInitialProps = async ({ req }) => {
-  
-  //   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  //   const res = await fetch("http://localhost:3001/api/posts");
-  //   const json = await res.json();
-  
-  //   return { posts: json.posts };
-  // };
-  )
+      </div>
+    )
   }
-  
+
 }
 export default Create;
 

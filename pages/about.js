@@ -12,95 +12,95 @@ import Grid from '@material-ui/core/Grid';
 
 const About = () => (
   <div className="container">
-    <Nav/>
+    <Nav />
     <Head>
       <title>About me</title>
     </Head>
     <div className="outer">
-    <Grid container>
-      <Grid item xs={2}>
+      <Grid container>
+        <Grid item xs={2}>
           <div>
 
           </div>
-      </Grid>
-      <Grid item xs={5}>
-        <h1>Who am I?</h1>
-        <div className="textSection">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </Grid>
+        <Grid item xs={5}>
+          <h1>Who am I?</h1>
+          <div className="textSection">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
           <div className="socialtitle">
             <h2>Follow me on social media</h2>
           </div>
           <ul>
-                <li>
-                  <div className="social-div">
-                    <a href="https://github.com/melihozden" target="_blank"><img src={require('../icons/github.png')}/></a>
-                  </div>
-                </li>
-                <li>
-                <div className="social-div">
-                  <a href="https://www.instagram.com/melihozdens/" target="_blank"><img src={require('../icons/instagram.png')}/></a>
-                  </div>
-                </li>
-                <li>
-                <div className="social-div">
-                  <a href="https://linkedin.com/in/melihozden" target="_blank"><img src={require('../icons/linkedin.png')}/></a>
-                  </div>
-                </li>
-                <li>
-                <div className="social-div">
-                  <a href="https://twitter.com/mlhozdn" target="_blank"><img src={require('../icons/twitter.png')}/></a>
-                  </div>
-                </li>
-                <li>
-                <div className="social-div">
-                  <a href="https://www.youtube.com/channel/UCP8SZbJ0foq8JaPz0mMaJlg" target="_blank"><img src={require('../icons/youtube.png')}/></a>
-                  </div>
-                </li>
-                <li>
-                <div className="social-div">
-                  <a href="https://www.twitch.tv/divergiant" target="_blank"><img src={require('../icons/twitch.png')}/></a>
-                  </div>
-                </li>
-              </ul>
-      </Grid>
-      <Grid item xs={3}>
-        <div className="developerPhoto">
-          <img src={require('../images/pphoto.jpg')}  width="350px" height="350px"alt="computer" className="p-img" />
-         
-        </div>
-      </Grid>
-      <Grid item xs={2}>
-        <div>
+            <li>
+              <div className="social-div">
+                <a href="https://github.com/melihozden" target="_blank"><img src={require('../icons/github.png')} /></a>
+              </div>
+            </li>
+            <li>
+              <div className="social-div">
+                <a href="https://www.instagram.com/melihozdens/" target="_blank"><img src={require('../icons/instagram.png')} /></a>
+              </div>
+            </li>
+            <li>
+              <div className="social-div">
+                <a href="https://linkedin.com/in/melihozden" target="_blank"><img src={require('../icons/linkedin.png')} /></a>
+              </div>
+            </li>
+            <li>
+              <div className="social-div">
+                <a href="https://twitter.com/mlhozdn" target="_blank"><img src={require('../icons/twitter.png')} /></a>
+              </div>
+            </li>
+            <li>
+              <div className="social-div">
+                <a href="https://www.youtube.com/channel/UCP8SZbJ0foq8JaPz0mMaJlg" target="_blank"><img src={require('../icons/youtube.png')} /></a>
+              </div>
+            </li>
+            <li>
+              <div className="social-div">
+                <a href="https://www.twitch.tv/divergiant" target="_blank"><img src={require('../icons/twitch.png')} /></a>
+              </div>
+            </li>
+          </ul>
+        </Grid>
+        <Grid item xs={3}>
+          <div className="developerPhoto">
+            <img src={require('../images/pphoto.jpg')} width="350px" height="350px" alt="computer" className="p-img" />
 
-        </div>
+          </div>
+        </Grid>
+        <Grid item xs={2}>
+          <div>
+
+          </div>
+        </Grid>
       </Grid>
-    </Grid>
-      </div>
+    </div>
     <style jsx>{`
     .developerPhoto{
       margin : 75px 50px;
@@ -135,12 +135,6 @@ const About = () => (
     }
     li{
       margin : 0px 20px;
-    }
-    .icon{
-      margin : 25px;
-      width : 100px;
-      height : 100px;
-      background : black;
     }
     `
     }

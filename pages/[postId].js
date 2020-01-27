@@ -37,7 +37,7 @@ const buttonStyle = {
   float: "left",
 }
 const tagIcon = {
-  marginRight : "10px",
+  marginRight: "10px",
 }
 
 // Her post ile anlamlı resim koyma kullanıcı tarafından koyulacak 
@@ -69,12 +69,12 @@ class BlogPost extends React.Component {
           <h2 className="blog-title">
             {post.postTitle}
           </h2>
-          {post.postTag!="No Tag" && 
+          {post.postTag != "No Tag" &&
             <div className="blog-tag">
-              <FaTag size="1em" color="#5c636e" style={tagIcon}/>
-               {post.postTag}
+              <FaTag size="1em" color="#5c636e" style={tagIcon} />
+              {post.postTag}
             </div>
-            }
+          }
           {/* <div className="relatedImage">
           <img />
         </div> */}
@@ -101,7 +101,7 @@ class BlogPost extends React.Component {
           </div>
           {this.state.showCommentArea &&
             <div className="comment-div">
-              <form method="POST" action={`http://localhost:3001/comment/${post.postId}`}>
+              <form method="POST" action={`https://melihozden.herokuapp.com/comment/${post.postId}`}>
                 <textarea style={textAreaStyle} name="commentContent"></textarea>
                 <button style={buttonStyle} type="submit" variant="contained" name="button" color="primary">Submit</button>
               </form>
@@ -199,8 +199,6 @@ class BlogPost extends React.Component {
 
 BlogPost.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  // console.log(query)
-  // const res = await fetch(`http://localhost:3001/${query.postId}`);
   const res = await fetch(`https://melihozden.herokuapp.com/api/posts/${query.postId}`);
   const res2 = await fetch(`https://melihozden.herokuapp.com/comments/${query.postId}`);
   const json = await res.json();
