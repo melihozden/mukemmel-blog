@@ -9,7 +9,9 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import { FaRegHeart } from 'react-icons/fa';
 import { FaTag } from 'react-icons/fa';
-
+import {Animated} from "react-animated-css";
+const validator = require("email-validator");
+ 
 
 let moment = require('moment');
 
@@ -25,8 +27,28 @@ const registerStyle = {
 const tagIcon = {
   marginRight: "10px",
 }
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName : '',
+      userMail : '',
+      userPassword : '',
+    };
+  }
+   handleChange = (event) =>{
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+  }
 
-const Home = ({ posts }) => (
+  handleSubmit = () =>{
+     console.log(validator.validate(this.state.userMail));
+  }
+  render(){
+    const posts = this.props.posts;
+    const { username, email, password} = this.state;
+    return(
   <div className="container">
     <Nav />
     <Head>
@@ -44,27 +66,26 @@ const Home = ({ posts }) => (
             <div className="register-title"> Welcome Blogger! We all excited to see your Posts </div>
             <div className="register-subtitle"> Register and share your opinions </div>
             <div className="register-content">
-              <form method="POST" action={`https://melihozden.herokuapp.com/register`}>
+              <form method="POST" action={`https://melihozden.herokuapp.com/register`} onSubmit={this.handleSubmit}>
                 <label>Username</label>
-                <input type="text" style={registerStyle} name="userName" />
+                <input type="text" style={registerStyle} name="userName" value={username} onChange={this.handleChange}/>
                 <label>Email</label>
-                <input type="text" style={registerStyle} name="userMail" />
+                <input type="text" style={registerStyle} name="userMail" value={email} onChange={this.handleChange}/>
                 <label>Password</label>
-                <input type="password" style={registerStyle} name="userPassword" />
+                <input type="password" style={registerStyle} name="userPassword" value={password} onChange={this.handleChange} />
                 <button type="submit" className="registerButton">Register for blog</button>
               </form>
+              <h5>Already have account? <a href="/login">Login</a></h5>
             </div>
           </div>
         </Grid>
       </Grid>
-
     </div>
-
-
     <div className="blogs">
       <h1>Some Blog you might look</h1>
       {posts.map((post, i) => (
         <div className="blog" key={i}>
+
           <h2 className="blog-title">
             {post.tag != "No Tag" &&
               <div className="blog-tag">
@@ -89,10 +110,13 @@ const Home = ({ posts }) => (
             </button>
           </div>
         </div>
+        
       ))}
     </div>
-
     <style jsx>{`
+      h5{
+        margin-top : 5px;
+      }
       .blogs {
         margin: 0 auto;
         min-width: 750px;
@@ -209,7 +233,9 @@ const Home = ({ posts }) => (
     `}</style>
     <Footer />
   </div>
-);
+  );
+  }
+}
 
 Home.getInitialProps = async ({ req }) => {
 

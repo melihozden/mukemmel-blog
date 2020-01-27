@@ -15,6 +15,8 @@ const outStyle = {
   }
 const  Login = () =>  (
   <div className="container">
+    <Nav/>
+    Login 
     {/* <Nav />
       <Head>
         <title>Login</title>
