@@ -9,9 +9,9 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import { FaRegHeart } from 'react-icons/fa';
 import { FaTag } from 'react-icons/fa';
-import {Animated} from "react-animated-css";
+import { Animated } from "react-animated-css";
 const validator = require("email-validator");
- 
+
 
 let moment = require('moment');
 
@@ -31,90 +31,91 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName : '',
-      userMail : '',
-      userPassword : '',
+      userName: '',
+      userMail: '',
+      userPassword: '',
     };
   }
-   handleChange = (event) =>{
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     })
   }
 
-  handleSubmit = () =>{
-     console.log(validator.validate(this.state.userMail));
+  handleSubmit = () => {
+    console.log(validator.validate(this.state.userMail));
   }
-  render(){
+  render() {
     const posts = this.props.posts;
-    const { username, email, password} = this.state;
-    return(
-  <div className="container">
-    <Nav />
-    <Head>
-      <title>Melih Ozden</title>
-    </Head>
-    <div className="welcome">
-      <Grid container>
-        <Grid item xs={6}>
-          <div className="community">
-            <img src={require('../images/computer.png')} width="500" alt="computer" className="community-img" />
-          </div>
-        </Grid>
-        <Grid item xs={6} >
-          <div className="register">
-            <div className="register-title"> Welcome Blogger! We all excited to see your Posts </div>
-            <div className="register-subtitle"> Register and share your opinions </div>
-            <div className="register-content">
-              <form method="POST" action={`https://melihozden.herokuapp.com/register`} onSubmit={this.handleSubmit}>
-                <label>Username</label>
-                <input type="text" style={registerStyle} name="userName" value={username} onChange={this.handleChange}/>
-                <label>Email</label>
-                <input type="text" style={registerStyle} name="userMail" value={email} onChange={this.handleChange}/>
-                <label>Password</label>
-                <input type="password" style={registerStyle} name="userPassword" value={password} onChange={this.handleChange} />
-                <button type="submit" className="registerButton">Register for blog</button>
-              </form>
-              <h5>Already have account? <a href="/login">Login</a></h5>
-            </div>
-          </div>
-        </Grid>
-      </Grid>
-    </div>
-    <div className="blogs">
-      <h1>Some Blog you might look</h1>
-      {posts.map((post, i) => (
-        <div className="blog" key={i}>
-
-          <h2 className="blog-title">
-            {post.tag != "No Tag" &&
-              <div className="blog-tag">
-                <FaTag size="1em" color="#5c636e" style={tagIcon} />
-                {post.tag}
+    const { username, email, password } = this.state;
+    return (
+      <div className="container">
+        <Nav mode={true} />
+        <Head>
+          <title>Melih Ozden</title>
+        </Head>
+        <div className="welcome">
+          <Grid container>
+            <Grid item xs={6}>
+              <div className="community">
+                <img src={require('../images/computer.png')} width="500" alt="computer" className="community-img" />
               </div>
-            }
-
-            <Link href={post._id}>
-              <a className="blog-title-link">{post.title}</a>
-            </Link>
-          </h2>
-          <div className="blog-text">
-            {post.detail.substring(0, 100) + " ..."}
-            <a href={post._id}>Read More</a>
-          </div>
-          <div className="blog-date">{moment(post.createdAt).format('ll')}</div>
-          <div>
-            <button className="like-button">
-              <FaRegHeart size="1.8em" color="#c00000" />
-              <div className="like">{post.like}</div>
-            </button>
-          </div>
+            </Grid>
+            <Grid item xs={6} >
+              <div className="register">
+                <div className="register-title"> Welcome Blogger! We all excited to see your Posts </div>
+                <div className="register-subtitle"> Register and share your opinions </div>
+                <div className="register-content">
+                  <form method="POST" action={`https://melihozden.herokuapp.com/register`} onSubmit={this.handleSubmit}>
+                    <label>Username</label>
+                    <input type="text" style={registerStyle} name="userName" value={username} onChange={this.handleChange} />
+                    <label>Email</label>
+                    <input type="text" style={registerStyle} name="userMail" value={email} onChange={this.handleChange} />
+                    <label>Password</label>
+                    <input type="password" style={registerStyle} name="userPassword" value={password} onChange={this.handleChange} />
+                    <button type="submit" className="registerButton">Register for blog</button>
+                  </form>
+                  <h5 className="h5-d">Already have account? <a href="/login">Login</a></h5>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
         </div>
-        
-      ))}
-    </div>
-    <style jsx>{`
-      h5{
+        <div className="blogs">
+          <h1>Some Blog you might look</h1>
+          {posts.map((post, i) => (
+            <div className="blog" key={i}>
+
+              <h2 className="blog-title">
+                {post.tag != "No Tag" &&
+                  <div className="blog-tag">
+                    <FaTag size="1em" color="#5c636e" style={tagIcon} />
+                    {post.tag}
+                  </div>
+                }
+
+                <Link href={post._id}>
+                  <a className="blog-title-link">{post.title}</a>
+                </Link>
+              </h2>
+              <div className="blog-text">
+                {post.detail.substring(0, 100) + " ..."}
+                <a href={post._id}>Read More</a>
+              </div>
+              <div className="blog-date">{moment(post.createdAt).format('ll')}</div>
+              <div>
+                <button className="like-button">
+                  <FaRegHeart size="1.8em" color="#c00000" />
+                  <div className="like">{post.like}</div>
+                </button>
+              </div>
+            </div>
+
+          ))}
+        </div>
+        <style jsx>{`
+      .h5-d{
+        color : black ;
         margin-top : 5px;
       }
       .blogs {
@@ -231,9 +232,9 @@ class Home extends React.Component {
 
 
     `}</style>
-    <Footer />
-  </div>
-  );
+        <Footer />
+      </div>
+    );
   }
 }
 
