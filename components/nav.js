@@ -65,13 +65,13 @@ class Nav extends React.Component {
             <a href="/create">Make a Post</a>
           </li>
           <li>
-            <a href="/profile">Profile</a>
-          </li>
-          <li>
             <a href="/about">About Me</a>
           </li>
           <li>
-            <a href="/login">Login</a>
+            <a href="/profile">Profile</a>
+          </li>
+          <li>
+              <a href="/login">Login</a>
           </li>
           <li className="darkModeStyle">
             <button onClick={this.handleClick} className="darkModeBtn">Dark Mode</button>

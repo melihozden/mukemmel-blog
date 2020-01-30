@@ -1,12 +1,7 @@
 import React from 'react';
-import Head from "next/head";
-import Nav from "../components/nav"
-import Footer from "../components/footer"
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Checkbox from '@material-ui/core/Checkbox';
-// var moment = require('moment');
-// moment().format();
+import Nav from "../components/nav";
+import Grid from '@material-ui/core/Grid';
+
 
 const outStyle = {
     alignItems: 'center',
@@ -16,35 +11,23 @@ const outStyle = {
 const  Login = () =>  (
   <div className="container">
     <Nav/>
-    Login 
-    {/* <Nav />
-      <Head>
-        <title>Login</title>
-      </Head>
-      <div className="form-div" style={outStyle}>
-         <div>Sign in</div>
+    <Grid container>
+      <Grid item xs={4}>
+
+      </Grid>
+      <Grid item xs={4}>
+        <div className="login-div">
           
-        <form>
-            <TextField label="aslkfasfklasfk"/>
+        </div>
+      </Grid>
+      <Grid item xs={4}>
 
-
-        </form>
-      </div>
-      <style jsx>{`
-      .form-div{
-        text-align:center;
-        margin:0px;
-      }     
-     
-      .details{
-
-      }
+      </Grid>
+    </Grid>
 
 
 
-     
-      `}</style>
-    <Footer/> */}
+
   </div>
 );
 

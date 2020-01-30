@@ -14,6 +14,7 @@ const validator = require("email-validator");
 
 
 let moment = require('moment');
+let shortNumber = require('short-number');
 
 const registerStyle = {
   width: "100%",
@@ -86,10 +87,9 @@ class Home extends React.Component {
           </Grid>
         </div>
         <div className="blogs">
-          <h1>Some Blog you might look</h1>
+          <h1>Some Blogs you might look</h1>
           {posts.map((post, i) => (
             <div className="blog" key={i}>
-
               <h2 className="blog-title">
                 {post.tag != "No Tag" &&
                   <div className="blog-tag">
@@ -103,12 +103,16 @@ class Home extends React.Component {
               </h2>
               <div className="blog-text">
                 {post.detail.substring(0, 500) + " ..."}
-                <a href={post._id}>Read More</a>
+                <div>
+                  <button className="readmore">
+                    <a href={post._id} className="readmore-a">Read More</a>
+                  </button>
+                </div>
               </div>
               <div className="blog-date">{moment(post.createdAt).format('ll')}</div>
               <div className="div-like">
                 <FaHeart size="1.8em" color="#c00000" />
-                <span className="span-like">{post.like}</span>
+                <span className="span-like">{shortNumber(post.like)}</span>
               </div>
             </div>
 
@@ -120,7 +124,7 @@ class Home extends React.Component {
         margin-top : 5px;
       }
       .span-like{
-        font-size : 18px;
+        font-size : 14px;
         font-weight: bold;
         margin : 0px 5px;
       }
@@ -128,6 +132,20 @@ class Home extends React.Component {
         margin: 0 auto;
         min-width: 750px;
         width: 55%;
+      }
+      .readmore-a{
+        color : white ;
+      }
+      .readmore{
+        margin : 10px 0px;
+        background : #0582C6;
+        width : 100px;
+        height  :35px;
+        text-align: center;
+        font-size:  14px;
+        font-weight : bold ;
+        border-radius : 10px;
+        border: none ;
       }
       .like{
         margin : 0px;

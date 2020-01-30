@@ -8,9 +8,11 @@ import { FaRegHeart } from 'react-icons/fa';
 import { FaTag } from 'react-icons/fa';
 import { MdInsertComment } from 'react-icons/md';
 let moment = require('moment');
+let shortNumber = require('short-number');
+
 
 const counter = {
-
+  fontWeight : "bold",
 }
 const textAreaStyle = {
   marginTop: "25px",
@@ -102,7 +104,7 @@ class BlogPost extends React.Component {
           <div>
             <ul>
               <li style={counter}>
-                {this.state.likeCount}
+                {shortNumber(this.state.likeCount)}
               </li>
               <li>
                 <button className="like-button" onClick={(e) => this.likeAction(e)}>
@@ -167,7 +169,6 @@ class BlogPost extends React.Component {
     list-style-type: none;
   }
   li{
-    color : #393e46;
     display: inline;
   }
   .like-button{
