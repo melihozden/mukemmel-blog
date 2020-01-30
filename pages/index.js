@@ -27,6 +27,12 @@ const registerStyle = {
 const tagIcon = {
   marginRight: "10px",
 }
+
+const likeAction =  (e,requestedId) =>{
+  // fetch('/https://melihozden.herokuapp.com/like', {method: 'POST'})
+  fetch(`https://melihozden.herokuapp.com/like/${requestedId}`, {method: 'POST',})
+}
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -99,14 +105,14 @@ class Home extends React.Component {
                 </Link>
               </h2>
               <div className="blog-text">
-                {post.detail.substring(0, 100) + " ..."}
+                {post.detail.substring(0, 200) + " ..."}
                 <a href={post._id}>Read More</a>
               </div>
               <div className="blog-date">{moment(post.createdAt).format('ll')}</div>
               <div>
-                <button className="like-button">
-                  <FaRegHeart size="1.8em" color="#c00000" />
-                  <div className="like">{post.like}</div>
+                <button className="like-button" onClick={(e) => likeAction(e,post._id)}>
+                    <FaRegHeart size="1.8em" color="#c00000" />
+                    <h3 className="like">{post.like}</h3>
                 </button>
               </div>
             </div>
@@ -124,6 +130,8 @@ class Home extends React.Component {
         width: 55%;
       }
       .like{
+        margin : 0px;
+        color : #5c636e;
         font-weight: bold;
       }
       label{
@@ -238,13 +246,13 @@ class Home extends React.Component {
   }
 }
 
-Home.getInitialProps = async ({ req }) => {
+Home.getInitialProps = async ({ req, }) => {
 
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch("https://melihozden.herokuapp.com/api/posts");
-  const json = await res.json();
-
-  return { posts: json.posts };
+   const json = await res.json();
+   
+    return { posts: json.posts };
 };
 
 export default Home;

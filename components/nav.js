@@ -33,9 +33,27 @@ class Nav extends React.Component {
     console.log(localStorage.getItem('mode'))
 
   }
+
+  componentDidMount = () =>{
+    localStorage.setItem('mode','light')
+
+    // if(localStorage.getItem('mode') == 'light'){
+    //   this.setState(state =>({
+    //     darkModeToggle : !state.darkModeToggle
+    //   }))
+    // }
+    // else{
+    //   this.setState(state =>({
+    //     darkModeToggle : !state.darkModeToggle
+    //   }))
+    // }
+
+  }
+
+
   render() {
     return (
-      <AppBar position="sticky" style={this.state.darkModeToggle ? appBarDark : appBarLight}>
+      <AppBar position="sticky" style={ this.state.darkModeToggle ? appBarDark : appBarLight}>
         <ul>
           <li className="logo">
             {
