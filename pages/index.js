@@ -7,7 +7,7 @@ import Footer from "../components/footer"
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import { FaRegHeart } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import { FaTag } from 'react-icons/fa';
 import { Animated } from "react-animated-css";
 const validator = require("email-validator");
@@ -28,10 +28,7 @@ const tagIcon = {
   marginRight: "10px",
 }
 
-const likeAction =  (e,requestedId) =>{
-  // fetch('/https://melihozden.herokuapp.com/like', {method: 'POST'})
-  fetch(`https://melihozden.herokuapp.com/like/${requestedId}`, {method: 'POST',})
-}
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -51,6 +48,7 @@ class Home extends React.Component {
   handleSubmit = () => {
     console.log(validator.validate(this.state.userMail));
   }
+
   render() {
     const posts = this.props.posts;
     const { username, email, password } = this.state;
@@ -99,21 +97,18 @@ class Home extends React.Component {
                     {post.tag}
                   </div>
                 }
-
                 <Link href={post._id}>
                   <a className="blog-title-link">{post.title}</a>
                 </Link>
               </h2>
               <div className="blog-text">
-                {post.detail.substring(0, 200) + " ..."}
+                {post.detail.substring(0, 500) + " ..."}
                 <a href={post._id}>Read More</a>
               </div>
               <div className="blog-date">{moment(post.createdAt).format('ll')}</div>
-              <div>
-                <button className="like-button" onClick={(e) => likeAction(e,post._id)}>
-                    <FaRegHeart size="1.8em" color="#c00000" />
-                    <h3 className="like">{post.like}</h3>
-                </button>
+              <div className="div-like">
+                <FaHeart size="1.8em" color="#c00000" />
+                <span className="span-like">{post.like}</span>
               </div>
             </div>
 
@@ -123,6 +118,11 @@ class Home extends React.Component {
       .h5-d{
         color : black ;
         margin-top : 5px;
+      }
+      .span-like{
+        font-size : 18px;
+        font-weight: bold;
+        margin : 0px 5px;
       }
       .blogs {
         margin: 0 auto;
@@ -250,9 +250,9 @@ Home.getInitialProps = async ({ req, }) => {
 
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch("https://melihozden.herokuapp.com/api/posts");
-   const json = await res.json();
-   
-    return { posts: json.posts };
+  const json = await res.json();
+
+  return { posts: json.posts };
 };
 
 export default Home;

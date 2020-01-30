@@ -40,20 +40,13 @@ const tagIcon = {
   marginRight: "10px",
 }
 
-const likeAction = (e,requestedId) =>{
-  // fetch('/https://melihozden.herokuapp.com/like', {method: 'POST'})
-  fetch(`https://melihozden.herokuapp.com/like/${requestedId}`, {method: 'POST',})
-  e.preventDefault()
-}
-
-// Her post ile anlamlı resim koyma kullanıcı tarafından koyulacak 
 class BlogPost extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { 
-      showCommentArea: false, 
-      likeCount : this.props.post.postLike,
+    this.state = {
+      showCommentArea: false,
+      likeCount: this.props.post.postLike,
       isLoading: false
     };
     this.handleClick = this.handleClick.bind(this);
@@ -66,14 +59,18 @@ class BlogPost extends React.Component {
     }));
   }
 
-  likeAction(e){
+  likeAction = (e) => {
     // fetch('/https://melihozden.herokuapp.com/like', {method: 'POST'})
+    e.preventDefault()
     this.setState({ isLoading: true });
-    fetch(`https://melihozden.herokuapp.com/like/${this.props.post.postId}`, {method: 'POST',})
-    .then((state)=>this.setState({likeCount: state.likeCount + 1 , isLoading : false}))
+    fetch(`https://melihozden.herokuapp.com/like/${this.props.post.postId}`, { method: 'POST', })
+      .then(this.setState(state => ({
+        likeCount: state.likeCount + 1
+      })))
   }
+
   componentDidMount() {
-  
+
   }
 
   render() {
@@ -108,13 +105,13 @@ class BlogPost extends React.Component {
                 {this.state.likeCount}
               </li>
               <li>
-                <button className="like-button" onClick={(e) => likeAction(e,post.postId)}>
+                <button className="like-button" onClick={(e) => this.likeAction(e)}>
                   <FaRegHeart size="2.2em" color="#c00000" />
                 </button>
               </li>
               <li>
                 <button className="like-button" onClick={this.handleClick}>
-                    <MdInsertComment size="2.2em" />
+                  <MdInsertComment size="2.2em" />
                 </button>
               </li>
             </ul>
