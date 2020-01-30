@@ -1,8 +1,6 @@
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 
-
-
 const appBarLight = {
   background: "#fafafa",
   boxShadow: "none",
@@ -29,9 +27,7 @@ class Nav extends React.Component {
     else {
       localStorage.setItem('mode', 'light')
     }
-
-    console.log(localStorage.getItem('mode'))
-
+    // console.log(localStorage.getItem('mode'))
   }
 
   componentDidMount = () =>{
