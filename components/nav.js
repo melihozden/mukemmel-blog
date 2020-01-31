@@ -31,7 +31,6 @@ class Nav extends React.Component {
   }
 
   componentDidMount = () =>{
-    localStorage.setItem('mode','light')
 
     if(localStorage.getItem('mode') == 'light'){
       this.setState(state =>({
