@@ -52,7 +52,6 @@ class BlogPost extends React.Component {
       isLoading: false
     };
     this.handleClick = this.handleClick.bind(this);
-    // console.log(props)
   }
 
   handleClick = () => {
@@ -62,7 +61,6 @@ class BlogPost extends React.Component {
   }
 
   likeAction = (e) => {
-    // fetch('/https://melihozden.herokuapp.com/like', {method: 'POST'})
     e.preventDefault()
     this.setState({ isLoading: true });
     fetch(`https://melihozden.herokuapp.com/like/${this.props.post.postId}`, { method: 'POST', })
@@ -70,11 +68,6 @@ class BlogPost extends React.Component {
         likeCount: state.likeCount + 1
       })))
   }
-
-  componentDidMount() {
-
-  }
-
   render() {
     const post = this.props.post;
     const comments = this.props.comments;
@@ -210,13 +203,10 @@ class BlogPost extends React.Component {
         `}</style>
       </div>
     );
-
   }
-
 }
 
 BlogPost.getInitialProps = async ({ req, query }) => {
-  // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch(`https://melihozden.herokuapp.com/api/posts/${query.postId}`);
   const res2 = await fetch(`https://melihozden.herokuapp.com/comments/${query.postId}`);
   const json = await res.json();

@@ -1,15 +1,11 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
-import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/nav"
 import Footer from "../components/footer"
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import { FaHeart } from 'react-icons/fa';
 import { FaTag } from 'react-icons/fa';
-import { Animated } from "react-animated-css";
 
 import Fade from 'react-reveal/Fade';
 
@@ -59,9 +55,7 @@ class Home extends React.Component {
     return (
       <div className="container">
         <Nav mode={true} />
-        <Head>
           <title>Melih Ozden</title>
-        </Head>
         <div className="welcome">
           <Grid container>
             <Grid item xs={6}>
@@ -120,8 +114,6 @@ class Home extends React.Component {
                 </div>
               </div>
             </Fade>
-
-
           ))}
         </div>
         <style jsx>{`
@@ -260,22 +252,15 @@ class Home extends React.Component {
       .registerButton:hover{
         cursor : pointer;
       }
-
-
-
     `}</style>
         <Footer />
       </div>
     );
   }
 }
-
 Home.getInitialProps = async ({ req, }) => {
-
-  // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch("https://melihozden.herokuapp.com/api/posts");
   const json = await res.json();
-
   return { posts: json.posts };
 };
 

@@ -4,12 +4,6 @@ import Head from "next/head";
 
 import Grid from '@material-ui/core/Grid';
 
-// const gridSystem = {
-//   background : "red",
-//   width : "100px",
-//   height : "100px",
-// }
-
 const About = () => (
   <div className="container">
     <Nav />
