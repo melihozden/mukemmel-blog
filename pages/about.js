@@ -55,38 +55,40 @@ const About = () => (
           <div className="socialtitle">
             <h2>Follow me on social media</h2>
           </div>
-          <ul>
-            <li>
-              <div className="social-div">
-                <a href="https://github.com/melihozden" target="_blank"><img src={require('../icons/github.png')} /></a>
-              </div>
-            </li>
-            <li>
-              <div className="social-div">
-                <a href="https://www.instagram.com/melihozdens/" target="_blank"><img src={require('../icons/instagram.png')} /></a>
-              </div>
-            </li>
-            <li>
-              <div className="social-div">
-                <a href="https://linkedin.com/in/melihozden" target="_blank"><img src={require('../icons/linkedin.png')} /></a>
-              </div>
-            </li>
-            <li>
-              <div className="social-div">
-                <a href="https://twitter.com/mlhozdn" target="_blank"><img src={require('../icons/twitter.png')} /></a>
-              </div>
-            </li>
-            <li>
-              <div className="social-div">
-                <a href="https://www.youtube.com/channel/UCP8SZbJ0foq8JaPz0mMaJlg" target="_blank"><img src={require('../icons/youtube.png')} /></a>
-              </div>
-            </li>
-            <li>
-              <div className="social-div">
-                <a href="https://www.twitch.tv/divergiant" target="_blank"><img src={require('../icons/twitch.png')} /></a>
-              </div>
-            </li>
-          </ul>
+          <div className="centering">
+            <ul>
+              <li>
+                <div className="social-div">
+                  <a href="https://github.com/melihozden" target="_blank"><img src={require('../icons/github.png')} /></a>
+                </div>
+              </li>
+              <li>
+                <div className="social-div">
+                  <a href="https://www.instagram.com/melihozdens/" target="_blank"><img src={require('../icons/instagram.png')} /></a>
+                </div>
+              </li>
+              <li>
+                <div className="social-div">
+                  <a href="https://linkedin.com/in/melihozden" target="_blank"><img src={require('../icons/linkedin.png')} /></a>
+                </div>
+              </li>
+              <li>
+                <div className="social-div">
+                  <a href="https://twitter.com/mlhozdn" target="_blank"><img src={require('../icons/twitter.png')} /></a>
+                </div>
+              </li>
+              <li>
+                <div className="social-div">
+                  <a href="https://www.youtube.com/channel/UCP8SZbJ0foq8JaPz0mMaJlg" target="_blank"><img src={require('../icons/youtube.png')} /></a>
+                </div>
+              </li>
+              <li>
+                <div className="social-div">
+                  <a href="https://www.twitch.tv/divergiant" target="_blank"><img src={require('../icons/twitch.png')} /></a>
+                </div>
+              </li>
+            </ul>
+          </div>
         </Grid>
         <Grid item xs={3}>
           <div className="developerPhoto">
@@ -104,9 +106,6 @@ const About = () => (
     <style jsx>{`
     .developerPhoto{
       margin : 75px 50px;
-    }
-    .textSection{
-      
     }
     .outer{
       margin-top : 50px;
@@ -126,7 +125,10 @@ const About = () => (
     }
     .social-div:hover{
       transition: 0.25s;
-      box-shadow: 0 8px 16px 8px rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 16px 8px rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.3);
+    }
+    .centering{
+      margin: 0 auto;
     }
     ul{
       text-align: center;

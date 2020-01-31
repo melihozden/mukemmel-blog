@@ -10,6 +10,9 @@ import Grid from '@material-ui/core/Grid';
 import { FaHeart } from 'react-icons/fa';
 import { FaTag } from 'react-icons/fa';
 import { Animated } from "react-animated-css";
+
+import Fade from 'react-reveal/Fade';
+
 const validator = require("email-validator");
 
 
@@ -72,11 +75,11 @@ class Home extends React.Component {
                 <div className="register-subtitle"> Register and share your opinions </div>
                 <div className="register-content">
                   <form method="POST" action={`https://melihozden.herokuapp.com/register`} onSubmit={this.handleSubmit}>
-                    <label>Username</label>
+                    <label>Username <span>*</span></label>
                     <input type="text" style={registerStyle} name="userName" value={username} onChange={this.handleChange} />
-                    <label>Email</label>
+                    <label>Email <span>*</span></label>
                     <input type="text" style={registerStyle} name="userMail" value={email} onChange={this.handleChange} />
-                    <label>Password</label>
+                    <label>Password <span>*</span></label>
                     <input type="password" style={registerStyle} name="userPassword" value={password} onChange={this.handleChange} />
                     <button type="submit" className="registerButton">Register for blog</button>
                   </form>
@@ -89,32 +92,35 @@ class Home extends React.Component {
         <div className="blogs">
           <h1>Some Blogs you might look</h1>
           {posts.map((post, i) => (
-            <div className="blog" key={i}>
-              <h2 className="blog-title">
-                {post.tag != "No Tag" &&
-                  <div className="blog-tag">
-                    <FaTag size="1em" color="#5c636e" style={tagIcon} />
-                    {post.tag}
+            <Fade bottom>
+              <div className="blog" key={i}>
+                <h2 className="blog-title">
+                  {post.tag != "No Tag" &&
+                    <div className="blog-tag">
+                      <FaTag size="1em" color="#5c636e" style={tagIcon} />
+                      {post.tag}
+                    </div>
+                  }
+                  <Link href={post._id}>
+                    <a className="blog-title-link">{post.title}</a>
+                  </Link>
+                </h2>
+                <div className="blog-text">
+                  {post.detail.substring(0, 500) + " ..."}
+                  <div>
+                    <button className="readmore">
+                      <a href={post._id} className="readmore-a">Read More</a>
+                    </button>
                   </div>
-                }
-                <Link href={post._id}>
-                  <a className="blog-title-link">{post.title}</a>
-                </Link>
-              </h2>
-              <div className="blog-text">
-                {post.detail.substring(0, 500) + " ..."}
-                <div>
-                  <button className="readmore">
-                    <a href={post._id} className="readmore-a">Read More</a>
-                  </button>
+                </div>
+                <div className="blog-date">{moment(post.createdAt).format('ll')}</div>
+                <div className="div-like">
+                  <FaHeart size="1.8em" color="#c00000" />
+                  <span className="span-like">{shortNumber(post.like)}</span>
                 </div>
               </div>
-              <div className="blog-date">{moment(post.createdAt).format('ll')}</div>
-              <div className="div-like">
-                <FaHeart size="1.8em" color="#c00000" />
-                <span className="span-like">{shortNumber(post.like)}</span>
-              </div>
-            </div>
+            </Fade>
+
 
           ))}
         </div>
