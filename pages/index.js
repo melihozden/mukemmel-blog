@@ -44,7 +44,7 @@ class Home extends React.Component {
   }
 
   handleSubmit = () => {
-    console.log(validator.validate(this.state.userMail));
+    // console.log(validator.validate(this.state.userMail));
   }
 
   render() {
@@ -66,7 +66,7 @@ class Home extends React.Component {
                 <div className="register-title"> Welcome Blogger! We all excited to see your Posts </div>
                 <div className="register-subtitle"> Register and share your opinions </div>
                 <div className="register-content">
-                  <form method="POST" action={`https://melihozden.herokuapp.com/register`} onSubmit={this.handleSubmit}>
+                  <form method="POST" action={`https://melihozdenblog.herokuapp.com`} onSubmit={this.handleSubmit}>
                     <label>Username <span>*</span></label>
                     <input type="text" style={registerStyle} name="userName" value={username} onChange={this.handleChange} />
                     <label>Email <span>*</span></label>
