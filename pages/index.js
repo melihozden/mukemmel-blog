@@ -28,8 +28,6 @@ const tagIcon = {
   marginRight: "10px",
 }
 
-
-
 class Home extends React.Component {
   constructor(props) {
     super(props);

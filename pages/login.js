@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from "../components/nav";
 import Grid from '@material-ui/core/Grid';
+import Alert from '@material-ui/lab/Alert';
 import Fade from 'react-reveal/Fade';
 
 const Login = () => (
@@ -12,6 +13,9 @@ const Login = () => (
       </Grid>
       <Grid item xs={4}>
         <Fade bottom>
+        <Alert variant="filled" severity="error">
+         Membership system is not working currently!
+        </Alert>
           <div className="logindiv">
             <a href="/">
               <img src={require('../images/blacktrans4x.png')} width="90" height="60" alt="Logo" className="login-logo" />

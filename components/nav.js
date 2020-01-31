@@ -61,9 +61,9 @@ class Nav extends React.Component {
           <li>
             <a href="/about">About Me</a>
           </li>
-          <li>
-            <a href="/profile">Profile</a>
-          </li>
+          {/* <li>
+            <a href="/profile" disabled>Profile</a>
+          </li> */}
           <li>
               <a href="/login">Login</a>
           </li>

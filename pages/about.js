@@ -1,7 +1,6 @@
 import React from 'react';
 import Nav from "../components/nav"
 import Head from "next/head";
-
 import Grid from '@material-ui/core/Grid';
 
 const About = () => (
