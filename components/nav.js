@@ -21,7 +21,11 @@ class Nav extends React.Component {
     this.setState(state => ({
       darkModeToggle: !state.darkModeToggle
     }))
-    if (localStorage.getItem('mode') == "light") {
+    
+    if(localStorage.getItem('mode') == null){
+      localStorage.setItem('mode', 'dark')
+    }
+    else if (localStorage.getItem('mode') == "light") {
       localStorage.setItem('mode', 'dark')
     }
     else {
@@ -32,7 +36,7 @@ class Nav extends React.Component {
 
   componentDidMount = () =>{
 
-    if(localStorage.getItem('mode') == 'light'){
+    if(localStorage.getItem('mode') == 'light' && localStorage.getItem('mode') != null){
       this.setState(state =>({
         darkModeToggle : !state.darkModeToggle
       }))
