@@ -21,31 +21,28 @@ class Nav extends React.Component {
     this.setState(state => ({
       darkModeToggle: !state.darkModeToggle
     }))
-    
-    if(localStorage.getItem('mode') == null){
-      localStorage.setItem('mode', 'dark')
-    }
-    else if (localStorage.getItem('mode') == "light") {
-      localStorage.setItem('mode', 'dark')
-    }
-    else {
-      localStorage.setItem('mode', 'light')
-    }
+    // if (localStorage.getItem('mode') == "light") {
+    //   localStorage.setItem('mode', 'dark')
+    // }
+    // else {
+    //   localStorage.setItem('mode', 'light')
+    // }
     // console.log(localStorage.getItem('mode'))
   }
 
   componentDidMount = () =>{
+    // localStorage.setItem('mode','light')
 
-    if(localStorage.getItem('mode') == 'light' && localStorage.getItem('mode') != null){
-      this.setState(state =>({
-        darkModeToggle : !state.darkModeToggle
-      }))
-    }
-    else{
-      this.setState(state =>({
-        darkModeToggle : !state.darkModeToggle
-      }))
-    }
+    // if(localStorage.getItem('mode') == 'light'){
+    //   this.setState(state =>({
+    //     darkModeToggle : !state.darkModeToggle
+    //   }))
+    // }
+    // else{
+    //   this.setState(state =>({
+    //     darkModeToggle : !state.darkModeToggle
+    //   }))
+    // }
 
   }
   render() {
@@ -117,7 +114,7 @@ class Nav extends React.Component {
         height : 25px;
         color : ${this.state.darkModeToggle ? 'white' : 'black'};
         border: ${this.state.darkModeToggle ? '1px solid white' : '1px solid black'};
-        border-radius :  10px ; 
+        border-radius :  10px ;
         background : none ;
       }
       button:hover{
