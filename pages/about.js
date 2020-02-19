@@ -52,7 +52,7 @@ const About = () => (
             <ul>
               <li>
                 <div className="social-div">
-                  <a href="https://github.com/melihozden" target="_blank"><img src={require('../icons/github.png')} /></a>
+                  <a href="https://github.com/melihozden" target="_blank"><img src={require('../icons/github-image.png')} /></a>
                 </div>
               </li>
               <li>
