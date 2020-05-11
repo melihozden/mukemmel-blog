@@ -52,7 +52,7 @@ class Nav extends React.Component {
           <li className="logo">
             {
               this.state.darkModeToggle ? <a href="/"><img src={require('../images/whitetrans2x.png')} width="60" height="40" alt="Logo" /></a> :
-                <a href="/"><img src={require('../images/blacktrans4x.png')} width="60" height="40" alt="Logo" /></a>
+                <a href="/homepage"><img src={require('../images/blacktrans4x.png')} width="60" height="40" alt="Logo" /></a>
             }
           </li>
           <li>

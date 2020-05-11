@@ -12,7 +12,7 @@ class Index extends Component {
     return (
       <div>
         <Head>
-        <title>Web Programlama Odev</title>
+        <title>Web Programming Odev</title>
         <link href="../styles/index.css" rel="stylesheet" />
       </Head>
         <Nav/>
@@ -21,17 +21,35 @@ class Index extends Component {
           <Grid item xs={2}>
 
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} className="center">
           <div className="center" className="webodevdiv">
-            <button><a href="/homepage">Web Programlama Ödevi Blog</a></button>
-            <button>Community Blog</button>
+          <a href="/homepage"><button>Web Programlama Ödevi Blog</button></a>
+            <button disabled>Community Blog (Kilitli)</button>
           </div>
           </Grid>
           <Grid item xs={2}>
 
           </Grid>
-
         </Grid>
+
+        <style jsx>{`
+        .webodevdiv{
+          text-align:center;
+        }
+        button{
+          height: 50px;
+          border-radius: 10px; 
+          border : none ;
+          background-color : #0582C6;
+          color: #FFFFFF;
+          font-size : 18px;
+          padding : 10px;
+          font-weight: bold ;
+        }
+        button:hover{
+          cursor: pointer;
+        }
+      `}</style>
       </div>
     );
   }

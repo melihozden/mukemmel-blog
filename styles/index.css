@@ -1,14 +1,15 @@
 
-/* css'ler node modullerinden geliyor(template gibi)  */
-.center{
+/* css'ler js dosyalarının içine gömüldü  */
+/* .center{
     text-align: center;
 }
 button{
     margin : 150px;
 }
+
 .webodevdiv{
-
     width: 50% ;
-    margin : 0px; 
+    margin : auto; 
+} 
+*/
 
-}
