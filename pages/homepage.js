@@ -53,7 +53,7 @@ class Home extends React.Component {
     return (
       <div className="container">
         <Nav mode={true} />
-          <title>Melih Ozden</title>
+          <title>Web Programming Odev</title>
         {/* <div className="welcome">
           <Grid container>
             <Grid item xs={6}>

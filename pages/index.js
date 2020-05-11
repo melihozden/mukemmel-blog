@@ -12,7 +12,7 @@ class Index extends Component {
     return (
       <div>
         <Head>
-        <title>Melih Ozden</title>
+        <title>Web Programlama Odev</title>
         <link href="../styles/index.css" rel="stylesheet" />
       </Head>
         <Nav/>
@@ -22,8 +22,8 @@ class Index extends Component {
 
           </Grid>
           <Grid item xs={8}>
-          <div className="center">
-            <button>Melih Ozden's Personal Blog</button>
+          <div className="center" className="webodevdiv">
+            <button><a href="/homepage">Web Programlama Odevi Blog</a></button>
             <button>Community Blog</button>
           </div>
           </Grid>
