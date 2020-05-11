@@ -23,7 +23,7 @@ class Index extends Component {
           </Grid>
           <Grid item xs={8}>
           <div className="center" className="webodevdiv">
-            <button><a href="/homepage">Web Programlama Odevi Blog</a></button>
+            <button><a href="/homepage">Web Programlama Ödevi Blog</a></button>
             <button>Community Blog</button>
           </div>
           </Grid>
